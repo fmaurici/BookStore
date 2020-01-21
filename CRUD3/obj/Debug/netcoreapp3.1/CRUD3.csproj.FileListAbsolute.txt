@@ -286,7 +286,6 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\bin\Debug\netcorea
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.csprojAssemblyReference.cache
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\staticwebassets\CRUD3.StaticWebAssets.Manifest.cache
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\staticwebassets\CRUD3.StaticWebAssets.xml
-D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.MvcApplicationPartsAssemblyInfo.cache
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.RazorAssemblyInfo.cache
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.RazorAssemblyInfo.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.AssemblyInfoInputs.cache
@@ -308,3 +307,4 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcorea
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.csproj.CopyComplete
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.MvcApplicationPartsAssemblyInfo.cache
