@@ -1,0 +1,11 @@
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\bin\Debug\netcoreapp3.1\IRepositories.deps.json
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\bin\Debug\netcoreapp3.1\IRepositories.dll
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.csprojAssemblyReference.cache
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.AssemblyInfoInputs.cache
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.AssemblyInfo.cs
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\bin\Debug\netcoreapp3.1\IRepositories.pdb
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\bin\Debug\netcoreapp3.1\Entities.dll
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.csproj.CopyComplete
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.dll
+D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.pdb
