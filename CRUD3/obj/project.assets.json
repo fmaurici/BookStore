@@ -8752,11 +8752,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\CRUD3\\CRUD3.csproj",
+      "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\CRUD3.csproj",
       "projectName": "CRUD3",
-      "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\CRUD3\\CRUD3.csproj",
+      "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\CRUD3.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\CRUD3\\obj\\",
+      "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8775,17 +8775,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj"
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj"
             },
-            "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj"
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj"
             },
-            "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\IRepositories\\IRepositories.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\IRepositories\\IRepositories.csproj"
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj"
             },
-            "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Repositories\\Repositories.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Repositories\\Repositories.csproj"
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj"
             }
           }
         }

@@ -11,3 +11,16 @@ D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Database\bin\Debug\netc
 D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Database\obj\Debug\netcoreapp3.1\Database.csproj.CopyComplete
 D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Database\obj\Debug\netcoreapp3.1\Database.dll
 D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Database\obj\Debug\netcoreapp3.1\Database.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Database.deps.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Database.runtimeconfig.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Database.runtimeconfig.dev.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Database.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Database.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Entities.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csprojAssemblyReference.cache
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfoInputs.cache
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csproj.CopyComplete
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.pdb

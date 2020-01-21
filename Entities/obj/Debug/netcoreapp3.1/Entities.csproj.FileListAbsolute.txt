@@ -6,3 +6,11 @@ D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Entities\obj\Debug\netc
 D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
 D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Entities\obj\Debug\netcoreapp3.1\Entities.dll
 D:\Emprendimientos\NetDevelopment\NetCoreSolutions\CRUD3\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.pdb

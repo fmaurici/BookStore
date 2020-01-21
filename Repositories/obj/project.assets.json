@@ -5533,11 +5533,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Repositories\\Repositories.csproj",
+      "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Repositories\\obj\\",
+      "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5556,11 +5556,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj"
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj"
             },
-            "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\IRepositories\\IRepositories.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\IRepositories\\IRepositories.csproj"
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj"
             }
           }
         }

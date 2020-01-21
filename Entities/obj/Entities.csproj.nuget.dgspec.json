@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj": {}
+    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj": {
+    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj",
+        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\obj\\",
+        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

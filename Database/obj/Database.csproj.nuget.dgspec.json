@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj": {}
+    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {}
   },
   "projects": {
-    "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj": {
+    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj",
+        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj",
         "projectName": "Database",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\Database.csproj",
+        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj",
         "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Database\\obj\\",
+        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj"
+              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj": {
+    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\Entities.csproj",
+        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\NetCoreSolutions\\CRUD3\\Entities\\obj\\",
+        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
