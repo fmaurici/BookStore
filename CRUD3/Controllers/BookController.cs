@@ -26,7 +26,7 @@ namespace CRUD3.Views.Home
 
         public IActionResult Add()
         {
-            return View("Book");
+            return View("Book", new BookViewModel());
         }
 
         public IActionResult Edit(Guid id)
