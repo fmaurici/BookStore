@@ -9,42 +9,18 @@ using System.Text;
 
 namespace Repositories
 {
-    public class BookRepository : IBookRepository
+    public class BookRepository : BaseRepository<Book>, IBookRepository
     {
         private readonly BookContext _context;
 
-        public BookRepository(BookContext context)
+        public BookRepository(BookContext context) : base(context)
         {
             _context = context;
         }
 
-        public void Create(Book book)
+        public override Book GetById(object id)
         {
-            _context.Add(book);
-            _context.SaveChanges();
-        }
-
-        public void Edit(Book book)
-        {
-            _context.Update(book);
-            _context.SaveChanges();
-        }
-
-        public void Delete(Guid id)
-        {
-            var book = GetById(id);
-            _context.Remove(book);
-            _context.SaveChanges();
-        }
-
-        public IList<Book> GetAll()
-        {
-            return _context.Books.ToList();
-        }
-
-        public Book GetById(Guid id)
-        {
-            return _context.Books.Where(b => b.Id == id)
+            return _context.Books.Where(b => b.Id == (Guid)id)
                 .Include(b => b.BookClients)
                 .ThenInclude(b => b.Client)
                 .FirstOrDefault();

@@ -307,4 +307,6 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcorea
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.csproj.CopyComplete
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.MvcApplicationPartsAssemblyInfo.cache

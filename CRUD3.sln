@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD3", "CRUD3\CRUD3.csproj", "{3EACC862-EC85-42BE-88DD-672DC9D86394}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD3", "CRUD3\CRUD3.csproj", "{3EACC862-EC85-42BE-88DD-672DC9D86394}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{E048B3F1-71AB-4858-9172-3CECA185DF41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{E048B3F1-71AB-4858-9172-3CECA185DF41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{D6DF85AC-34E7-476C-8C50-1F894766DEB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{D6DF85AC-34E7-476C-8C50-1F894766DEB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRepositories", "IRepositories\IRepositories.csproj", "{338CC442-130B-4824-B0CA-2622A9ED7F5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRepositories", "IRepositories\IRepositories.csproj", "{338CC442-130B-4824-B0CA-2622A9ED7F5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{52F2692E-8A99-451A-BD6E-D45A2B794FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{52F2692E-8A99-451A-BD6E-D45A2B794FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{D6E723F8-80FB-4D8C-8478-8D72617C2D0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{52F2692E-8A99-451A-BD6E-D45A2B794FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52F2692E-8A99-451A-BD6E-D45A2B794FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52F2692E-8A99-451A-BD6E-D45A2B794FFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E723F8-80FB-4D8C-8478-8D72617C2D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E723F8-80FB-4D8C-8478-8D72617C2D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E723F8-80FB-4D8C-8478-8D72617C2D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E723F8-80FB-4D8C-8478-8D72617C2D0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
