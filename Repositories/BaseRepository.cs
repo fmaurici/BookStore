@@ -13,6 +13,7 @@ namespace Repositories
         private readonly BookContext _context;
 
         public BaseRepository(BookContext context)
+        // el context este se encuentra en el startup para conectar con entity framework core 
         {
             _context = context;
         }
