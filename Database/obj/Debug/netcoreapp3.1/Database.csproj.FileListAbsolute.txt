@@ -37,3 +37,16 @@ Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
 Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csproj.CopyComplete
 Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.dll
 Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Database.deps.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Database.runtimeconfig.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Database.runtimeconfig.dev.json
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Database.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Database.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Entities.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\bin\Debug\netcoreapp3.1\Entities.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csprojAssemblyReference.cache
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfoInputs.cache
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csproj.CopyComplete
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\obj\Debug\netcoreapp3.1\Database.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\Database\obj\Debug\netcoreapp3.1\Database.pdb
