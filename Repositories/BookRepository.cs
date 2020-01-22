@@ -22,9 +22,19 @@ namespace Repositories
         {
             return _context.Books.Where(b => b.Id == (Guid)id)
                 .Include(b => b.BookClients)
-                .ThenInclude(b => b.Client)
+                .ThenInclude(bc => bc.Client)
                 .FirstOrDefault();
                
         }
+
+        public override IList<Book> GetAll()
+        {
+            //Los includes lo que hacen es traer datos anidados que no estén directo en la tabla Books (como hacemos con los inner join en SQL)
+            return _context.Books
+                .Include(b => b.BookClients)
+                .ThenInclude(bc => bc.Client)
+                .ToList();
+        }
+
     }
 }

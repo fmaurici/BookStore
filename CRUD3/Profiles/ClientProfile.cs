@@ -12,7 +12,7 @@ namespace CRUD3.Profiles
     {
         public ClientProfile()
         {
-
+            //CreateMap<Client, ClientViewModel>().ReverseMap();
         }
     }
 }

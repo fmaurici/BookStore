@@ -18,6 +18,8 @@ namespace Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Esto es para poder tener la relacion muchos a muchos entre Books y Clientes 
+            //(Cada book puede tener muchos clients, y cada client puede tener muchos books)
             modelBuilder.Entity<BookClient>().HasKey(bc => new { bc.BookId, bc.ClientId });
 
             modelBuilder.Entity<BookClient>()
