@@ -104,23 +104,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\franc\\.nuget\\packages\\": {},
+    "C:\\Users\\Diego\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj",
+      "projectUniqueName": "Z:\\BookStore\\IRepositories\\IRepositories.csproj",
       "projectName": "IRepositories",
-      "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj",
-      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\obj\\",
+      "projectPath": "Z:\\BookStore\\IRepositories\\IRepositories.csproj",
+      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+      "outputPath": "Z:\\BookStore\\IRepositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -133,8 +133,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
-              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj"
+            "Z:\\BookStore\\Entities\\Entities.csproj": {
+              "projectPath": "Z:\\BookStore\\Entities\\Entities.csproj"
             }
           }
         }

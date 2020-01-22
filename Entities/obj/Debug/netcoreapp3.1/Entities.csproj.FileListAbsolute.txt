@@ -14,3 +14,11 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netco
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
+Z:\BookStore\Entities\bin\Debug\netcoreapp3.1\Entities.deps.json
+Z:\BookStore\Entities\bin\Debug\netcoreapp3.1\Entities.dll
+Z:\BookStore\Entities\bin\Debug\netcoreapp3.1\Entities.pdb
+Z:\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+Z:\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+Z:\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.AssemblyInfo.cs
+Z:\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.dll
+Z:\BookStore\Entities\obj\Debug\netcoreapp3.1\Entities.pdb

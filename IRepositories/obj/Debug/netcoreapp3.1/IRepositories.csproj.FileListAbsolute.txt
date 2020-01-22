@@ -20,3 +20,14 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\IRepositories\obj\Debug\
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.csproj.CopyComplete
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.pdb
+Z:\BookStore\IRepositories\bin\Debug\netcoreapp3.1\IRepositories.deps.json
+Z:\BookStore\IRepositories\bin\Debug\netcoreapp3.1\IRepositories.dll
+Z:\BookStore\IRepositories\bin\Debug\netcoreapp3.1\IRepositories.pdb
+Z:\BookStore\IRepositories\bin\Debug\netcoreapp3.1\Entities.dll
+Z:\BookStore\IRepositories\bin\Debug\netcoreapp3.1\Entities.pdb
+Z:\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.csprojAssemblyReference.cache
+Z:\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.AssemblyInfoInputs.cache
+Z:\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.AssemblyInfo.cs
+Z:\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.csproj.CopyComplete
+Z:\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.dll
+Z:\BookStore\IRepositories\obj\Debug\netcoreapp3.1\IRepositories.pdb

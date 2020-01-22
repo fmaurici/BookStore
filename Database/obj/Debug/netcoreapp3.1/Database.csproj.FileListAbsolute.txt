@@ -24,3 +24,16 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netco
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csproj.CopyComplete
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BookStore\Database\obj\Debug\netcoreapp3.1\Database.pdb
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Database.deps.json
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Database.runtimeconfig.json
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Database.runtimeconfig.dev.json
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Database.dll
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Database.pdb
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Entities.dll
+Z:\BookStore\Database\bin\Debug\netcoreapp3.1\Entities.pdb
+Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csprojAssemblyReference.cache
+Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfoInputs.cache
+Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
+Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.csproj.CopyComplete
+Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.dll
+Z:\BookStore\Database\obj\Debug\netcoreapp3.1\Database.pdb

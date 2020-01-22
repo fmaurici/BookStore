@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\CRUD3.csproj": {}
+    "Z:\\BookStore\\CRUD3\\CRUD3.csproj": {}
   },
   "projects": {
-    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\CRUD3.csproj": {
+    "Z:\\BookStore\\CRUD3\\CRUD3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\CRUD3.csproj",
+        "projectUniqueName": "Z:\\BookStore\\CRUD3\\CRUD3.csproj",
         "projectName": "CRUD3",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\CRUD3.csproj",
-        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\CRUD3\\obj\\",
+        "projectPath": "Z:\\BookStore\\CRUD3\\CRUD3.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "Z:\\BookStore\\CRUD3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,17 +30,17 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj"
+              "Z:\\BookStore\\Database\\Database.csproj": {
+                "projectPath": "Z:\\BookStore\\Database\\Database.csproj"
               },
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj"
+              "Z:\\BookStore\\Entities\\Entities.csproj": {
+                "projectPath": "Z:\\BookStore\\Entities\\Entities.csproj"
               },
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj"
+              "Z:\\BookStore\\IRepositories\\IRepositories.csproj": {
+                "projectPath": "Z:\\BookStore\\IRepositories\\IRepositories.csproj"
               },
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj"
+              "Z:\\BookStore\\Repositories\\Repositories.csproj": {
+                "projectPath": "Z:\\BookStore\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -97,20 +97,20 @@
         }
       }
     },
-    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {
+    "Z:\\BookStore\\Database\\Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj",
+        "projectUniqueName": "Z:\\BookStore\\Database\\Database.csproj",
         "projectName": "Database",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj",
-        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\obj\\",
+        "projectPath": "Z:\\BookStore\\Database\\Database.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "Z:\\BookStore\\Database\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -123,8 +123,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj"
+              "Z:\\BookStore\\Entities\\Entities.csproj": {
+                "projectPath": "Z:\\BookStore\\Entities\\Entities.csproj"
               }
             }
           }
@@ -176,20 +176,20 @@
         }
       }
     },
-    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
+    "Z:\\BookStore\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj",
+        "projectUniqueName": "Z:\\BookStore\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\obj\\",
+        "projectPath": "Z:\\BookStore\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "Z:\\BookStore\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -231,20 +231,20 @@
         }
       }
     },
-    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj": {
+    "Z:\\BookStore\\IRepositories\\IRepositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj",
+        "projectUniqueName": "Z:\\BookStore\\IRepositories\\IRepositories.csproj",
         "projectName": "IRepositories",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj",
-        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\obj\\",
+        "projectPath": "Z:\\BookStore\\IRepositories\\IRepositories.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "Z:\\BookStore\\IRepositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -257,8 +257,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Entities\\Entities.csproj"
+              "Z:\\BookStore\\Entities\\Entities.csproj": {
+                "projectPath": "Z:\\BookStore\\Entities\\Entities.csproj"
               }
             }
           }
@@ -296,20 +296,20 @@
         }
       }
     },
-    "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj": {
+    "Z:\\BookStore\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "Z:\\BookStore\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Repositories\\obj\\",
+        "projectPath": "Z:\\BookStore\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "Z:\\BookStore\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -322,11 +322,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\Database\\Database.csproj"
+              "Z:\\BookStore\\Database\\Database.csproj": {
+                "projectPath": "Z:\\BookStore\\Database\\Database.csproj"
               },
-              "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj": {
-                "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BookStore\\IRepositories\\IRepositories.csproj"
+              "Z:\\BookStore\\IRepositories\\IRepositories.csproj": {
+                "projectPath": "Z:\\BookStore\\IRepositories\\IRepositories.csproj"
               }
             }
           }
