@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
+    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity //BaseRepository hereda de IBaseRepository de T, donde T es una BaseEntity (es decir cualquier clase que herede de BaseEntity)
     {
         private readonly BookContext _context;
 
