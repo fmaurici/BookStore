@@ -36,5 +36,10 @@ namespace Repositories
                 .ToList();
         }
 
+        public IList<Book> Alquilar()
+        {
+            //Acá deberías hacer la funcion Alquilar
+            return new List<Book>();
+        }
     }
 }
