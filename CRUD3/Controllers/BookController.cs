@@ -22,11 +22,13 @@ namespace CRUD3.Views.Home
             _mapper = mapper;
         }
 
+        //Constructor
         public IActionResult Book()
         {
             return View();
         }
 
+        //---------- Llamadas para mostrar Views ------------
         public IActionResult Add()
         {
             return View("Book", new BookViewModel());
@@ -41,20 +43,14 @@ namespace CRUD3.Views.Home
             return View("Book", viewModel);
         }
 
-        public IActionResult Delete(Guid id)
-        {
-            _bookRepository.Delete(id);
-
-            return RedirectToAction("Index", "Home");
-        }
-
-
+        //---------- Acciones dentro de las Views ------------
         [HttpPost]
         public IActionResult CreateOrEdit(BookViewModel model)
         {
             // Convierto mi ViewModel en Entity con Automapper
             var book = _mapper.Map<Book>(model); ;
 
+            //Si mi entidad no existe (osea, su Guid es igual a un New Guid), entonces redirijo a CreateBook. Si mi entidad existe, entonces redirijo a EditBook
             if (model.Id == new Guid()) 
                 CreateBook(book); 
             EditBook(book);
@@ -72,31 +68,13 @@ namespace CRUD3.Views.Home
             _bookRepository.Update(book);
         }
 
-        //TODO: pasar a un helper o servicio
-        public Book FillBook(BookViewModel bookViewModel)
+        public IActionResult Delete(Guid id)
         {
-            //var book = new Book { Id = bookViewModel.Id, Name = bookViewModel.Name, Price = bookViewModel.Price, Stock = bookViewModel.Stock };
+            _bookRepository.Delete(id);
 
-            var book = _mapper.Map<Book>(bookViewModel);
-            return book;
+            return RedirectToAction("Index", "Home");
         }
 
-        public BookViewModel FillBookViewModel(Book book)
-        {
-            //var clientList = new List<SelectListItem>();
 
-            //if (book.BookClients.Any())
-            //{
-            //    foreach (Client client in book.BookClients.Select(c => c.Client))
-            //    {
-            //        clientList.Add(new SelectListItem { Value = client.Id.ToString(), Text = client.Name });
-            //    }
-            //}
-            //var bookViewModel = new BookViewModel { Id = book.Id, Name = book.Name, Price = book.Price, Stock = book.Stock, Clients = clientList};
-
-            var bookViewModel = _mapper.Map<BookViewModel>(book);
-
-            return bookViewModel;
-        }
     }
 }

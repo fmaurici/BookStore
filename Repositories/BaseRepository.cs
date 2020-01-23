@@ -10,14 +10,16 @@ namespace Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity //BaseRepository hereda de IBaseRepository de T, donde T es una BaseEntity (es decir cualquier clase que herede de BaseEntity)
     {
-        private readonly BookContext _context;
+        private readonly BookStoreContext _context;
 
-        public BaseRepository(BookContext context)
+        public BaseRepository(BookStoreContext context)
         // el context este se encuentra en el startup para conectar con entity framework core 
         {
             _context = context;
         }
 
+        //En este base repo van a ir todos los metodos que se utilicen en TODOS los repositorios de la misma forma. 
+        //Si queremos usar alguno de forma especial, solo lo overraideamos en el repo hijo (Como el GetAll() en BookRepository)
         public virtual IList<T> GetAll()
         {
             return _context.Set<T>().ToList();

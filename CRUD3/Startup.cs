@@ -43,7 +43,7 @@ namespace CRUD3
             //Singleton objects are the same for every object and every request.
             //services.AddSingleton<IBookRepository, BookRepository>();
 
-            services.AddDbContext<BookContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<BookStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

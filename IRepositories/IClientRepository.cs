@@ -7,6 +7,5 @@ namespace IRepositories
 {
     public interface IClientRepository : IBaseRepository<Client>
     {
-
     }
 }
