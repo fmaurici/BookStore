@@ -13,6 +13,9 @@ namespace CRUD3.Profiles
     {
         public BookProfile()
         {
+            //Acá le decimos a automapper que puede transformar un Book en un BookViewModel con el CreateMap y viceversa con el ReverseMap
+            //Como tenemos un elemento especial en nuestro viewModel (lista de SelectListItems), le pido a automaper que lo mapee de una forma particular
+            //Para ver un ejemplo mas facil, ir al Client Profile
             CreateMap<Book, BookViewModel>()
                 .ForMember(
                  vm => vm.Clients, opt => opt.MapFrom(

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace CRUD3.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
+        public Author Author { get; set; }
         public List<SelectListItem> Clients { get; set; }
     }
 }

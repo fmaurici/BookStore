@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CRUD3.Models;
 using Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -12,7 +13,8 @@ namespace CRUD3.Profiles
     {
         public ClientProfile()
         {
-            //CreateMap<Client, ClientViewModel>().ReverseMap();
+            //Acá le estaría diciendo a Automapper que puede convertir mi Client en un ClientViewModel y viceversa
+            CreateMap<Client, ClientViewModel>().ReverseMap();
         }
     }
 }

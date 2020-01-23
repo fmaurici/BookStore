@@ -15,6 +15,7 @@ namespace Database
         //Le decimos a Entity Framework que para nuestra relacion muchos a muchos vamos a usar estas 3 tablas
         public DbSet<Book> Books { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<BookClient> BookClients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
