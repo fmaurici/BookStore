@@ -14,5 +14,6 @@ namespace CRUD3.Models
         public int Stock { get; set; }
         public Author Author { get; set; }
         public List<SelectListItem> Clients { get; set; }
+        public string Action { get; set; }
     }
 }

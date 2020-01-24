@@ -610,7 +610,6 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\o
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.TagHelpers.input.cache
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.TagHelpers.output.cache
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.RazorCoreGenerate.cache
-D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Book\Book.cshtml.g.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -624,3 +623,9 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\o
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.csproj.CopyComplete
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.dll
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Book\AddBook.cshtml.g.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Book\BookList.cshtml.g.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\bin\Debug\netcoreapp3.1\Business.dll
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\bin\Debug\netcoreapp3.1\Business.pdb
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AuthorList.cshtml.g.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AddAuthor.cshtml.g.cs

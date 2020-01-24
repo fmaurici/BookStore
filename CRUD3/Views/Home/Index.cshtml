@@ -1,58 +1,33 @@
-﻿@model IEnumerable<BookViewModel>
-
+﻿
 @{
     ViewData["Title"] = "Index";
 }
 
-<h4>Employee Register</h4>
+<h4>Welcome to the Book Store!</h4>
 <hr />
 
-
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th>
-                Precio
-            </th>
-            <th>
-                Stock
-            </th>
-            <th>
-                Acciones
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stock)
-                </td>
-                <td>
-                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg">Edit</i></a>
-                    <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt fa-lg">Delete</i></a>
-                </td>
-            </tr>
-        }
-    </tbody>
+<div class="container">
+    <div class="col-xs-12 col-md-6 col-sm-8 col-lg-6 center-block">
+        <br />
+        <p>What do you want to do? </p>
+        <br />
+        <p>
+            See our Books: <span class="pull-right">
+                <button asp-controller="Book" asp-action="BookList">Book List</button>
+            </span>
+        </p>
+        <p>
+            See our Books: <span class="pull-right">
+                <button class="btn btn-default btn-small" asp-controller="Book" asp-action="BookList">Book List</button>
+            </span>
+        </p>
+        <p>
+            See our Books: <span class="pull-right">
+                <button class="btn btn-default btn-small" asp-controller="Book" asp-action="BookList">Book List</button>
+            </span>
+        </p>
+        <br />
+    </div>
+</div>
 
 
-</table>
-</br>
-<a asp-controller="Book" asp-action="Add"><i class="fa fa-marker fa-lg">Add</i></a>

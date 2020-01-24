@@ -2672,6 +2672,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.dll": {}
+        }
+      },
       "Database/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -8840,6 +8850,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Business/1.0.0": {
+      "type": "project",
+      "path": "../Business/Business.csproj",
+      "msbuildProject": "../Business/Business.csproj"
+    },
     "Database/1.0.0": {
       "type": "project",
       "path": "../Database/Database.csproj",
@@ -8865,6 +8880,7 @@
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper >= 9.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 7.0.0",
+      "Business >= 1.0.0",
       "Database >= 1.0.0",
       "Entities >= 1.0.0",
       "IRepositories >= 1.0.0",
@@ -8904,6 +8920,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Business\\Business.csproj": {
+              "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Business\\Business.csproj"
+            },
             "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Database\\Database.csproj": {
               "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Database\\Database.csproj"
             },
