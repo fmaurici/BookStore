@@ -629,3 +629,4 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\b
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\bin\Debug\netcoreapp3.1\Business.pdb
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AuthorList.cshtml.g.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AddAuthor.cshtml.g.cs
+D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\bin\Debug\netcoreapp3.1\libman.json
