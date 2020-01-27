@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Entities;
+using IRepositories;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BookController : ControllerBase
+    {
+        private readonly IBookRepository _bookRepository;
+
+        //Constructor
+        public BookController(IBookRepository bookRepository)
+        {
+            _bookRepository = bookRepository;
+        }
+        // GET: api/Book
+        [HttpGet]
+        public IEnumerable<Book> Get()
+        {
+            var bookList = _bookRepository.GetAll();
+            //bookList.Select(x => x.BookClients.Select(b => b.Book.BookClients = null));
+            //bookList.Select(x => x.BookClients.Select(b => b.Client.BookClients = null));
+            return bookList;
+        }
+
+        // GET: api/Book/5
+        [HttpGet("{id}", Name = "Get")]
+        public Book Get(Guid id)
+        {
+            return _bookRepository.GetById(id);
+        }
+
+        // POST: api/Book
+        [HttpPost]
+        public void Post([FromBody] Book book)
+        {
+            _bookRepository.Insert(book);
+        }
+
+        // PUT: api/Book/5
+        [HttpPut("{id}")]
+        public void Put(Guid id, [FromBody] Book book)
+        {
+            _bookRepository.Update(book);
+        }
+
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(Guid id)
+        {
+            _bookRepository.Delete(id);
+        }
+    }
+}
