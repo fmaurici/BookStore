@@ -58,8 +58,8 @@ namespace CRUD3.Views.Home
             var book = _mapper.Map<Book>(model); ;
 
             //Si mi entidad no existe (osea, su Guid es igual a un New Guid), entonces voy a CreateBook. Si mi entidad existe, entonces voy a EditBook
-            if (model.Id == new Guid()) 
-                CreateBook(book); 
+            if (model.Id == new Guid())
+                CreateBook(book);
             EditBook(book);
 
             return RedirectToAction("BookList", "Book");
@@ -73,6 +73,23 @@ namespace CRUD3.Views.Home
         public void EditBook(Book book)
         {
             _bookRepository.Update(book);
+        }
+
+        public IActionResult Alquilar(Guid id)
+        {
+            var book = _bookRepository.GetById(id);
+            book.Stock -= 1;
+            _bookRepository.Update(book);
+
+            return RedirectToAction("BookList", "Book");
+        }
+        public IActionResult Devolver(Guid id)
+        {
+            var book = _bookRepository.GetById(id);
+            book.Stock += 1;
+            _bookRepository.Update(book);
+
+            return RedirectToAction("BookList", "Book");
         }
 
         public IActionResult Delete(Guid id)

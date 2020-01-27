@@ -4,61 +4,77 @@
     ViewData["Title"] = "BookList";
 }
 
-<h4>Book List</h4>
+<h4 style="color:aqua">Book List</h4>
 <hr />
+<br>
+<html lang="en" style="background-color:darkgray">
 
+<head style="background-color:black">
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Price
-            </th>
-            <th>
-                Stock
-            </th>
-            <th>
-                Author
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.Name)
-            </td>
-            <td>
-                <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg">Edit</i></a>
-                <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt fa-lg">Delete</i></a>
-            </td>
-        </tr>
-        }
-    </tbody>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:black">
 
+    <table class="table table-dark table-hover" style="background-color:black">
+        <thead class="thead-dark">
+            <tr>
+                @*<th style="color:aqua">
+                        Id
+                    </th>*@
+                <th style="color:aqua">
+                    Name
+                </th>
+                <th style="color:aqua">
+                    Price
+                </th>
+                <th style="color:aqua">
+                    Stock
+                </th>
+                <th style="color:aqua">
+                    Author
+                </th>
+                <th style="color:aqua">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author.Name)
+                    </td>
+                    <td>
+                        <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
+                        <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
+                        <a asp-controller="Book" asp-action="Alquilar" asp-route-id="@item.Id"><i class="btn btn-outline-warning">Alquilar</i></a>
+                        <a asp-controller="Book" asp-action="Devolver" asp-route-id="@item.Id"><i class="btn btn-outline-secondary">Devolver</i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <a asp-controller="Book" asp-action="Add"><i class=" btn btn-dark " style="color: aqua; border-bottom-color:aqua">Add New Book</i></a>
 
-</table>
-</br>
-<a asp-controller="Book" asp-action="Add"><i class="fa fa-marker fa-lg">Add New Book</i></a>
+    </table>
+
+</body>
+</html>
+

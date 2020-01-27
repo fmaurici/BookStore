@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.4.1" />
     <PackageReference Include="ICSharpCode.NRefactory" Version="5.5.1" />
   </ItemGroup>
 

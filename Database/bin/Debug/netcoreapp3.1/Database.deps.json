@@ -12,10 +12,17 @@
           "EntityFramework": "6.4.0",
           "Microsoft.EntityFrameworkCore": "3.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.0",
-          "Microsoft.EntityFrameworkCore.Tools": "3.1.0"
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.0",
+          "bootstrap": "4.4.1"
         },
         "runtime": {
           "Database.dll": {}
+        }
+      },
+      "bootstrap/4.4.1": {
+        "dependencies": {
+          "jQuery": "3.0.0",
+          "popper.js": "1.16.0"
         }
       },
       "EntityFramework/6.4.0": {
@@ -37,6 +44,7 @@
           }
         }
       },
+      "jQuery/3.0.0": {},
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -318,6 +326,7 @@
           }
         }
       },
+      "popper.js/1.16.0": {},
       "runtime.native.System/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -971,6 +980,9 @@
         }
       },
       "Entities/1.0.0": {
+        "dependencies": {
+          "bootstrap": "4.4.1"
+        },
         "runtime": {
           "Entities.dll": {}
         }
@@ -983,12 +995,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "bootstrap/4.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/QO9//Z8IYv8VmxTS3VzLaQC3wYnJDNbACnZHgLEeMABYjNuVPToLa6VDP2S4KwU3gUFiXglhQYZ00cddSK0IQ==",
+      "path": "bootstrap/4.4.1",
+      "hashPath": "bootstrap.4.4.1.nupkg.sha512"
+    },
     "EntityFramework/6.4.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-7jDmcQ3jaN5G7ZJC7Ecq161zQBs/5LqRzBdZ/I4XfmSvOwteGgNjOi30kthFador4Qjo3qUU6iOB1H04GIXrpg==",
       "path": "entityframework/6.4.0",
       "hashPath": "entityframework.6.4.0.nupkg.sha512"
+    },
+    "jQuery/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xFfntV19HzCtKdJWOp/XT9PUY3SslokTDDLFJZdBug36j1XVhw1+vPQ/n7Gd5y+jdpesn5B1m1yn1qIUq57jlA==",
+      "path": "jquery/3.0.0",
+      "hashPath": "jquery.3.0.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "type": "package",
@@ -1178,6 +1204,13 @@
       "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
+    },
+    "popper.js/1.16.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZJhaIouJ7dztoRoqj+KA1ADGpEIr+MzCWOkKm/Q6tu3CAauSsc+ZzXsxsD6RClRwieacqE3QNYNpaLU/mkVnWg==",
+      "path": "popper.js/1.16.0",
+      "hashPath": "popper.js.1.16.0.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
