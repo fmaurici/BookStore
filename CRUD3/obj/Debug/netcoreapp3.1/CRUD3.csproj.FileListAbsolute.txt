@@ -445,7 +445,6 @@ Z:\BookStore\CRUD3\bin\Debug\netcoreapp3.1\Repositories.pdb
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.csprojAssemblyReference.cache
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\staticwebassets\CRUD3.StaticWebAssets.Manifest.cache
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\staticwebassets\CRUD3.StaticWebAssets.xml
-Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.MvcApplicationPartsAssemblyInfo.cache
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.RazorAssemblyInfo.cache
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.RazorAssemblyInfo.cs
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.AssemblyInfoInputs.cache
@@ -453,7 +452,6 @@ Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.AssemblyInfo.cs
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.TagHelpers.input.cache
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.TagHelpers.output.cache
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.RazorCoreGenerate.cache
-Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Book\Book.cshtml.g.cs
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -630,3 +628,11 @@ D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\b
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AuthorList.cshtml.g.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AddAuthor.cshtml.g.cs
 D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\bin\Debug\netcoreapp3.1\libman.json
+Z:\BookStore\CRUD3\bin\Debug\netcoreapp3.1\libman.json
+Z:\BookStore\CRUD3\bin\Debug\netcoreapp3.1\Business.dll
+Z:\BookStore\CRUD3\bin\Debug\netcoreapp3.1\Business.pdb
+Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AddAuthor.cshtml.g.cs
+Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Author\AuthorList.cshtml.g.cs
+Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Book\AddBook.cshtml.g.cs
+Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\Razor\Views\Book\BookList.cshtml.g.cs
+Z:\BookStore\CRUD3\obj\Debug\netcoreapp3.1\CRUD3.MvcApplicationPartsAssemblyInfo.cache

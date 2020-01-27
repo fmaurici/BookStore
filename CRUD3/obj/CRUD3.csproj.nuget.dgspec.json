@@ -40,6 +40,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.4.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -131,6 +137,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.4.1, )"
             }
           },
           "imports": [
@@ -213,6 +223,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.4.1, )"
             }
           },
           "imports": [
@@ -270,6 +284,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.4.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -333,6 +353,10 @@
             "ICSharpCode.NRefactory": {
               "target": "Package",
               "version": "[5.5.1, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.4.1, )"
             }
           },
           "imports": [
@@ -411,6 +435,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[4.4.1, )"
             }
           },
           "imports": [

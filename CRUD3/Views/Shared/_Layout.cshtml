@@ -10,23 +10,23 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 " >
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CRUD3</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:aqua">CRUD3</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                        aria-expanded="false" aria-label="Toggle navigation" >
+                    <span class="navbar-toggler-icon" ></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"style="color:aqua">
+                    <ul class="navbar-nav flex-grow-1" >
+                        <li class="nav-item" >
+                            <a class="nav-link text"style="color:grey" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="BookList">Book List</a>
+                        <li class="nav-item" >
+                            <a class="nav-link text" style="color:grey" asp-area="" asp-controller="Book" asp-action="BookList">Book List</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="AuthorList">Author List</a>
+                        <li class="nav-item" >
+                            <a class="nav-link text" style="color:grey" asp-area="" asp-controller="Author" asp-action="AuthorList">Author List</a>
                         </li>
                     </ul>
                 </div>
@@ -34,12 +34,12 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
+        <main role="main" class="pb-xl-4">
+            @RenderBody()<br>
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted" style="background-color:black">
         <div class="container">
             &copy; 2020 - CRUD3 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
