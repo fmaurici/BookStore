@@ -202,23 +202,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\franc\\.nuget\\packages\\": {},
+    "C:\\Users\\Diego\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Entities\\Entities.csproj",
+      "projectUniqueName": "Z:\\BookStore\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Entities\\Entities.csproj",
-      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "D:\\Emprendimientos\\NetDevelopment\\GitHubRepos\\BooksStorePrueba\\BookStore\\Entities\\obj\\",
+      "projectPath": "Z:\\BookStore\\Entities\\Entities.csproj",
+      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+      "outputPath": "Z:\\BookStore\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

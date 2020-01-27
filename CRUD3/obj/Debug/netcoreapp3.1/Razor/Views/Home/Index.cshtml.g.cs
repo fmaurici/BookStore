@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\Views\_ViewImports.cshtml"
+#line 1 "Z:\BookStore\CRUD3\Views\_ViewImports.cshtml"
 using CRUD3;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\Views\_ViewImports.cshtml"
+#line 2 "Z:\BookStore\CRUD3\Views\_ViewImports.cshtml"
 using CRUD3.Models;
 
 #line default
@@ -62,7 +62,7 @@ using CRUD3.Models;
         {
             WriteLiteral("\r\n");
 #nullable restore
-#line 2 "D:\Emprendimientos\NetDevelopment\GitHubRepos\BooksStorePrueba\BookStore\CRUD3\Views\Home\Index.cshtml"
+#line 2 "Z:\BookStore\CRUD3\Views\Home\Index.cshtml"
   
     ViewData["Title"] = "Index";
 
@@ -143,7 +143,7 @@ using CRUD3.Models;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n                        </span>\r\n                    </p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n     ");
+                WriteLiteral("\r\n                    </span>\r\n                </p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
