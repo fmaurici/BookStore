@@ -40,11 +40,18 @@ namespace Repositories
                 .ToList();
         }
 
-        public IList<Book> Alquilar()
+        public void Alquilar(Guid id)
         {
-            //Acá deberías hacer la funcion Alquilar
-            //La funcion alquilar no está en nuestro base repository porque solo la vamos a usar para book. Entonces deberíamos ponerla en este repo y también en la interfaz de bookrepo
-            return new List<Book>();
+            var book = GetById(id);
+            book.Stock -= 1;
+            Update(book);
+        }
+        public void Devolver(Guid id)
+        {
+            var book = GetById(id);
+            book.Stock += 1;
+            Update(book);
+
         }
     }
 }

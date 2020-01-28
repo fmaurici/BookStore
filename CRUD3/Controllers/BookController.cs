@@ -9,6 +9,7 @@ using Entities;
 using IRepositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Repositories;
 using static Business.Enums;
 
 namespace CRUD3.Views.Home
@@ -30,6 +31,7 @@ namespace CRUD3.Views.Home
         {
             //Traigo todos mis books y luego lleno los viewModels con el Select y AutoMapper
             var bookList = _bookRepository.GetAll();
+
             var viewModel = bookList.Select(book => _mapper.Map<BookViewModel>(book));
 
             return View(viewModel);
@@ -77,17 +79,13 @@ namespace CRUD3.Views.Home
 
         public IActionResult Alquilar(Guid id)
         {
-            var book = _bookRepository.GetById(id);
-            book.Stock -= 1;
-            _bookRepository.Update(book);
+            _bookRepository.Alquilar(id);
 
             return RedirectToAction("BookList", "Book");
         }
         public IActionResult Devolver(Guid id)
         {
-            var book = _bookRepository.GetById(id);
-            book.Stock += 1;
-            _bookRepository.Update(book);
+            _bookRepository.Devolver(id);
 
             return RedirectToAction("BookList", "Book");
         }

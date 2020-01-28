@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Business
 {
-    public class Enums
+    public static class Enums
     {
         public enum Actions
         {

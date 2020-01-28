@@ -11,5 +11,11 @@ namespace IRepositories
         //Como heredo todos esos metodos, no necesito escribirlos acá, ya que estan en el IBaseRepository<Book> (como lo de baseEntity)
 
         //Acá debería ir nuestro "Alquilar" sin implementar, que luego va a ser  usado por nuestro BookRepository
+
+        void Alquilar(Guid id);
+        void Devolver(Guid id);
+
     }
+
+
 }
