@@ -40,11 +40,12 @@ namespace Repositories
                 .ToList();
         }
 
-        public void Alquilar(Guid id)
+        public int Alquilar(Guid id)
         {
             var book = GetById(id);
             book.Stock -= 1;
             Update(book);
+            return book.Stock;
         }
         public void Devolver(Guid id)
         {

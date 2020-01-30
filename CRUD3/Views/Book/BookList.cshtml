@@ -40,7 +40,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    <td>
+                    <td id="Stock">
                         @Html.DisplayFor(modelItem => item.Stock)
                     </td>
                     <td>
@@ -49,7 +49,7 @@
                     <td>
                         <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
                         <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
-                        <a asp-controller="Book" asp-action="Alquilar" asp-route-id="@item.Id"><i class="btn btn-outline-warning">Alquilar</i></a>
+                        <a class="BotonAlquilar" value="@item.Id"><i class="btn btn-outline-warning">Alquilar</i></a>
                         <a asp-controller="Book" asp-action="Devolver" asp-route-id="@item.Id"><i class="btn btn-outline-secondary">Devolver</i></a>
                     </td>
                 </tr>
@@ -61,4 +61,28 @@
     <a asp-controller="Book" asp-action="Add"><i class=" btn btn-dark " style="color: aqua; border-bottom-color:aqua">Add New Book</i></a>
 </body>
 
+<script type="text/javascript">
+    $(".BotonAlquilar").on("click", function () {
+        var self = $(this);
+        var LibroAlquilado = self.attr("value");
+       alert(LibroAlquilado);
+        $.ajax({
+            type: "POST",
+            url: "/Home/Alquilar",
+            datatype: "json",
+            data: {
+                id: LibroAlquilado
+            },
+            success: function (result) {
+
+                $("#Stock").load(result);
+
+                @*$("#Stock").html(@Html.DisplayFor(modelItem => result.stock);
+               $("#Stock").html("<td>" result "</td>");*@
+            }
+        });
+    })
+
+
+</script>
 

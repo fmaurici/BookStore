@@ -12,7 +12,7 @@ namespace IRepositories
 
         //Acá debería ir nuestro "Alquilar" sin implementar, que luego va a ser  usado por nuestro BookRepository
 
-        void Alquilar(Guid id);
+        public int Alquilar(Guid id);
         void Devolver(Guid id);
 
     }
