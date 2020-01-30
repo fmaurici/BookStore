@@ -77,6 +77,7 @@ namespace CRUD3.Views.Home
             _bookRepository.Update(book);
         }
 
+        [HttpPost]
         public IActionResult Alquilar(Guid id)
         {
             var result = _bookRepository.Alquilar(id);
