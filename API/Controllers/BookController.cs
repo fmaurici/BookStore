@@ -44,6 +44,9 @@ namespace API.Controllers
             _bookRepository.Insert(book);
         }
 
+
+        //TODO: HACER ALQUILAR METHOD
+
         // PUT: api/Book/5
         [HttpPut("{id}")]
         public void Put(Guid id, [FromBody] Book book)
