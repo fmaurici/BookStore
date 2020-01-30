@@ -77,11 +77,12 @@ namespace CRUD3.Views.Home
             _bookRepository.Update(book);
         }
 
+        [HttpPost]
         public IActionResult Alquilar(Guid id)
         {
-            _bookRepository.Alquilar(id);
+            var result = _bookRepository.Alquilar(id);
 
-            return RedirectToAction("BookList", "Book");
+            return Json(result);
         }
         public IActionResult Devolver(Guid id)
         {

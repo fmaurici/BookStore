@@ -3,20 +3,17 @@
     ViewData["Title"] = "AuthorList";
 }
 
-<h4>Author List</h4>
+<h4 style="color:aqua">Author List</h4>
 <hr />
 
 
 <table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
+    <thead class="thead-dark">
+        <tr >
+            <th style="color:aqua" >
                 Name
             </th>
-            <th>
+            <th style="color:aqua" >
                 Actions
             </th>
         </tr>
@@ -25,15 +22,12 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
+                <td style="color:aqua">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    <a asp-controller="Author" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg">Edit</i></a>
-                    <a asp-controller="Author" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt fa-lg">Delete</i></a>
+                    <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
+                    <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
                 </td>
             </tr>
         }
@@ -42,5 +36,5 @@
 
 </table>
 </br>
-<a asp-controller="Author" asp-action="Add"><i class="fa fa-marker fa-lg">Add New Author</i></a>
+<a asp-controller="Book" asp-action="Add"><i class=" btn btn-dark " style="color: aqua; border-bottom-color:aqua">Add New Author</i></a>
 
