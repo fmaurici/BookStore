@@ -25,13 +25,11 @@ namespace API.Controllers
         public IEnumerable<Book> Get()
         {
             var bookList = _bookRepository.GetAll();
-            //bookList.Select(x => x.BookClients.Select(b => b.Book.BookClients = null));
-            //bookList.Select(x => x.BookClients.Select(b => b.Client.BookClients = null));
             return bookList;
         }
 
         // GET: api/Book/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Book Get(Guid id)
         {
             return _bookRepository.GetById(id);

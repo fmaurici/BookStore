@@ -12,11 +12,13 @@ namespace Repositories
     public class BookRepository : BaseRepository<Book>, IBookRepository
     {
         private readonly BookStoreContext _context;
+        private readonly IAuthorRepository _authorRepository;
 
         //Inyectamos el contexto (es decir, la base de datos para que entity Framework la pueda usar acá)
-        public BookRepository(BookStoreContext context) : base(context)
+        public BookRepository(BookStoreContext context, IAuthorRepository authorRepository) : base(context)
         {
             _context = context;
+            _authorRepository = authorRepository;
         }
 
         public override Book GetById(object id)
@@ -38,6 +40,15 @@ namespace Repositories
                 .Include(b => b.BookClients)
                 .ThenInclude(bc => bc.Client)
                 .ToList();
+        }
+
+        public override void Insert(Book obj)
+        {
+            var book = obj;
+            var author = _authorRepository.GetById(book.Author.Id);
+            book.Author = author;
+            _context.Add(book);
+            _context.SaveChanges();
         }
 
         public int Alquilar(Guid id)
