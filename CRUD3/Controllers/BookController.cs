@@ -80,9 +80,9 @@ namespace CRUD3.Views.Home
         [HttpPost]
         public IActionResult Alquilar(Guid id)
         {
-            var result = _bookRepository.Alquilar(id);
+            var StockAlquilado = _bookRepository.Alquilar(id);
 
-            return Json(result);
+            return Json(StockAlquilado);
         }
         public IActionResult Devolver(Guid id)
         {

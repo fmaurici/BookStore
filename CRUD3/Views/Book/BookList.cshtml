@@ -50,7 +50,7 @@
                     <td>
                         <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
                         <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
-                        <a class="BotonAlquilar" value="@item.Id"><i class="btn btn-outline-warning">Alquilar</i></a>
+                        <a asp-controller="Book" asp-action="Alquilar" asp-route-id="@item.Id" class="BotonAlquilar" data-ajax-update="'Stock" ><i class="btn btn-outline-warning">Alquilar</i></a>
                         <a asp-controller="Book" asp-action="Devolver" asp-route-id="@item.Id"><i class="btn btn-outline-secondary">Devolver</i></a>
                     </td>
                 </tr>
@@ -74,10 +74,10 @@
             data: {
                 id: LibroAlquilado
             },
-            success: function (result) {
+            success: function  (StockAlquilado) {
 
-                $("#Stock").html(result);
-
+                $("#Stock").html(StockAlquilado);
+               
                 @*$("#Stock").html(@Html.DisplayFor(modelItem => result.stock);
                $("#Stock").html("<td>" result "</td>");*@
             }
