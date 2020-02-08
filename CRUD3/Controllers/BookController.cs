@@ -82,7 +82,7 @@ namespace CRUD3.Views.Home
         {
             var StockAlquilado = _bookRepository.Alquilar(id);
 
-            return Json(StockAlquilado);
+            return Json(data : StockAlquilado);
         }
         public IActionResult Devolver(Guid id)
         {

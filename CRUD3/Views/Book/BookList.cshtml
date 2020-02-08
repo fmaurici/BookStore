@@ -10,74 +10,29 @@
 
 <body style="background-color:black">
 
-    <table class="table table-dark table-hover" style="background-color:black">
-        <thead class="thead-dark">
-            @*Poner el "color:aqua en una clase en el site.css y ponerla en el tr de aca abajo. seria algo como: .colorAqua > th{}*@
-            <tr>
-                <th style="color:aqua">
-                    Name
-                </th>
-                <th style="color:aqua">
-                    Price
-                </th>
-                <th style="color:aqua">
-                    Stock
-                </th>
-                <th style="color:aqua">
-                    Author
-                </th>
-                <th style="color:aqua">
-                    Actions
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td id="Stock">
-                        @Html.DisplayFor(modelItem => item.Stock)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Author.Name)
-                    </td>
-                    <td>
-                        <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
-                        <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
-                        <a asp-controller="Book" asp-action="Alquilar" asp-route-id="@item.Id" class="BotonAlquilar" data-ajax-update="'Stock" ><i class="btn btn-outline-warning">Alquilar</i></a>
-                        <a asp-controller="Book" asp-action="Devolver" asp-route-id="@item.Id"><i class="btn btn-outline-secondary">Devolver</i></a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-
-
-    </table>
-    <a asp-controller="Book" asp-action="Add"><i class=" btn btn-dark " style="color: aqua; border-bottom-color:aqua">Add New Book</i></a>
+    <div class="d-flex justify-content-center">
+        
+        <partial>@{await Html.RenderPartialAsync("_PartialViewOfListBook");}</partial>
+    
+    </div>
+   
 </body>
 
 <script type="text/javascript">
     $(".BotonAlquilar").on("click", function () {
-        var self = $(this);
-        var LibroAlquilado = self.attr("value");
-       alert(LibroAlquilado);
+        var idLibro = $(this);
+       alert(idLibro);
         $.ajax({
             type: "POST",
             url: "/Home/Alquilar",
             datatype: "json",
             data: {
-                id: LibroAlquilado
+                id: idLibro
             },
-            success: function  (StockAlquilado) {
+            success: function  (result) {
 
-                $("#Stock").html(StockAlquilado);
-               
+                $("#TablaLibros").html(result);
+
                 @*$("#Stock").html(@Html.DisplayFor(modelItem => result.stock);
                $("#Stock").html("<td>" result "</td>");*@
             }
