@@ -1,10 +1,12 @@
 ﻿using Database;
 using Entities;
 using IRepositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Repositories
 {
@@ -20,33 +22,33 @@ namespace Repositories
 
         //En este base repo van a ir todos los metodos que se utilicen en TODOS los repositorios de la misma forma. 
         //Si queremos usar alguno de forma especial, solo lo overraideamos en el repo hijo (Como el GetAll() en BookRepository)
-        public virtual IList<T> GetAll()
+        public virtual async Task<IList<T>> GetAll()
         {
-            return _context.Set<T>().ToList();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public virtual T GetById(object id)
+        public async virtual Task<T> GetById(object id)
         {
-            return _context.Set<T>().Find(id);
+            return await _context.Set<T>().FindAsync(id);
         }
 
-        public virtual void Insert(T obj)
+        public async virtual Task Insert(T obj)
         {
             _context.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public virtual void Update(T obj)
+        public async virtual Task Update(T obj)
         {
             _context.Update(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public virtual void Delete(object id)
+        public async virtual Task Delete(object id)
         {
-            var obj = GetById(id);
+            var obj = await GetById(id);
             _context.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
     }

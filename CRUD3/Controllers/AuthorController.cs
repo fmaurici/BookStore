@@ -23,9 +23,9 @@ namespace CRUD3.Controllers
             _mapper = mapper;
         }
 
-        public IActionResult AuthorList()
+        public async Task<IActionResult> AuthorList()
         {
-            var authorList = _authorRepository.GetAll();
+            var authorList = await _authorRepository.GetAll();
             var viewModel = authorList.Select(author => _mapper.Map<AuthorViewModel>(author));
 
             return View(viewModel);
@@ -36,9 +36,9 @@ namespace CRUD3.Controllers
             return View("AddAuthor", new AuthorViewModel() { Action = Actions.Add.ToString() });
         }
 
-        public IActionResult Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            var author = _authorRepository.GetById(id);
+            var author = await _authorRepository.GetById(id);
             
             var viewModel = _mapper.Map<AuthorViewModel>(author);
             viewModel.Action = Actions.Edit.ToString();

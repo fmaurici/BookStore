@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Repositories
 {
@@ -21,49 +22,53 @@ namespace Repositories
             _authorRepository = authorRepository;
         }
 
-        public override Book GetById(object id)
+        public async override Task<Book> GetById(object id)
         {
-            return _context.Books.Where(b => b.Id == (Guid)id)
+            return await _context.Books.Where(b => b.Id == (Guid)id)
                 .Include(b => b.Author)
                 .Include(b => b.BookClients)
                 .ThenInclude(bc => bc.Client)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
                
         }
 
-        public override IList<Book> GetAll()
+        public async override Task<IList<Book>> GetAll()
         {
             //Los includes lo que hacen es traer datos anidados que no estén directo en la tabla Books (como hacemos con los inner join en SQL)
             //Entonces acá decimos, Traeme los libros que esten en nuestro contexto (base de datos) y también incluime los BookClients hijos y los Clients de esos BookClients
-            return _context.Books
+            return await _context.Books
                 .Include(b => b.Author)
                 .Include(b => b.BookClients)
                 .ThenInclude(bc => bc.Client)
-                .ToList();
+                .ToListAsync();
         }
 
-        public override void Insert(Book obj)
+        public async override Task Insert(Book obj)
         {
             var book = obj;
-            var author = _authorRepository.GetById(book.Author.Id);
-            book.Author = author;
+            if (book.Author != null)
+            {
+                var author = await _authorRepository.GetById(book.Author.Id);
+                book.Author = author;
+            }
+            
             _context.Add(book);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public int Alquilar(Guid id)
+        public async Task<int> Rent(Guid id)
         {
-            var book = GetById(id);
-            book.Stock -= 1;
-            Update(book);
+            var book = await GetById(id);
+            book.Rent();
+            await Update(book);
             return book.Stock;
         }
-        public void Devolver(Guid id)
+        public async Task<int> Return(Guid id)
         {
-            var book = GetById(id);
-            book.Stock += 1;
-            Update(book);
-
+            var book = await GetById(id);
+            book.Return();
+            await Update(book);
+            return book.Stock;
         }
     }
 }

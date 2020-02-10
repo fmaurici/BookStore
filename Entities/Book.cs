@@ -11,5 +11,15 @@ namespace Entities
         public int Stock { get; set; }
         public Author Author { get; set; }
         public virtual IList<BookClient> BookClients { get; set; }
+
+        public int Rent()
+        {
+            return this.Stock -= 1;
+        }
+
+        public int Return()
+        {
+            return this.Stock -= 1;
+        }
     }
 }

@@ -41,7 +41,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Price)
                     </td>
-                    <td id="Stock">
+                    <td id="@("Stock" + @item.Id)">
                         @Html.DisplayFor(modelItem => item.Stock)
                     </td>
                     <td>
@@ -50,7 +50,7 @@
                     <td>
                         <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
                         <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
-                        <a class="BotonAlquilar" value="@item.Id"><i class="btn btn-outline-warning">Alquilar</i></a>
+                        <a class="RentButton" value="@item.Id"><i class="btn btn-outline-warning">Rent</i></a>
                         <a asp-controller="Book" asp-action="Devolver" asp-route-id="@item.Id"><i class="btn btn-outline-secondary">Devolver</i></a>
                     </td>
                 </tr>
@@ -63,27 +63,31 @@
 </body>
 
 <script type="text/javascript">
-    $(".BotonAlquilar").on("click", function () {
+
+    $(".RentButton").on("click", function () {
         var self = $(this);
-        var LibroAlquilado = self.attr("value");
-       alert(LibroAlquilado);
-        $.ajax({
-            type: "POST",
-            url: "/Home/Alquilar",
-            datatype: "json",
-            data: {
-                id: LibroAlquilado
-            },
-            success: function (result) {
-
-                $("#Stock").html(result);
-
-                @*$("#Stock").html(@Html.DisplayFor(modelItem => result.stock);
-               $("#Stock").html("<td>" result "</td>");*@
-            }
-        });
+        var rentedBookId = self.attr("value");
+        rentAction(rentedBookId);
     })
 
+    var rentAction = function (bookId) {
+        var url = "/Book/Rent";
+        $.ajax({
+            type: "POST",
+            url: url,
+            datatype: "json",
+            data: {
+                id: bookId
+            },
+            success: function (result) {
+                updateStock(result, bookId);
+            }
+        })
+    }
+
+    var updateStock = function (data, bookId) {
+        $('#Stock' + bookId).html(data);
+    }
 
 </script>
 

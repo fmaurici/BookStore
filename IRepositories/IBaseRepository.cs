@@ -2,16 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IRepositories
 {
     public interface IBaseRepository<T> where T : BaseEntity
     {
-        IList<T> GetAll();
-        T GetById(object id);
-        void Insert(T obj);
-        void Update(T obj);
-        void Delete(object id);
+        Task<IList<T>> GetAll();
+        Task<T> GetById(object id);
+        Task Insert(T obj);
+        Task Update(T obj);
+        Task Delete(object id);
 
     }
 }

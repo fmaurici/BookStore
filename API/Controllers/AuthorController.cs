@@ -21,16 +21,16 @@ namespace API.Controllers
 
         // GET: api/Author
         [HttpGet]
-        public IEnumerable<Author> Get()
+        public async Task<IEnumerable<Author>> Get()
         {
-            return _authorRepository.GetAll();
+            return await _authorRepository.GetAll();
         }
 
         // GET: api/Author/5
         [HttpGet("{id}")]
-        public Author Get(int id)
+        public async Task<Author> Get(int id)
         {
-            return _authorRepository.GetById(id);
+            return await _authorRepository.GetById(id);
         }
 
         //// POST: api/Author

@@ -27,10 +27,10 @@ namespace CRUD3.Views.Home
         }
 
         //---------- Llamadas para mostrar Views ------------
-        public IActionResult BookList()
+        public async Task<IActionResult> BookList()
         {
             //Traigo todos mis books y luego lleno los viewModels con el Select y AutoMapper
-            var bookList = _bookRepository.GetAll();
+            var bookList = await _bookRepository.GetAll();
 
             var viewModel = bookList.Select(book => _mapper.Map<BookViewModel>(book));
 
@@ -42,9 +42,9 @@ namespace CRUD3.Views.Home
             return View("AddBook", new BookViewModel() { Action = Actions.Add.ToString() });
         }
 
-        public IActionResult Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            var book = _bookRepository.GetById(id);
+            var book = await _bookRepository.GetById(id);
 
             //Lleno mi ViewModel automaticamente con AutoMapper
             var viewModel = _mapper.Map<BookViewModel>(book);
@@ -54,47 +54,50 @@ namespace CRUD3.Views.Home
 
         //---------- Acciones dentro de las Views ---------------
         [HttpPost]
-        public IActionResult CreateOrEdit(BookViewModel model)
+        public async Task<IActionResult> CreateOrEdit(BookViewModel model)
         {
             // Convierto mi ViewModel en Entity con Automapper
             var book = _mapper.Map<Book>(model); ;
 
             //Si mi entidad no existe (osea, su Guid es igual a un New Guid), entonces voy a CreateBook. Si mi entidad existe, entonces voy a EditBook
             if (model.Id == new Guid())
-                CreateBook(book);
-            EditBook(book);
+            {
+                await CreateBook(book);
+            }
+            else
+            {
+                await EditBook(book);
+            }
 
             return RedirectToAction("BookList", "Book");
         }
 
-        public void CreateBook(Book book)
+        public async Task CreateBook(Book book)
         {
-            _bookRepository.Insert(book);
+           await _bookRepository.Insert(book);
         }
 
-        public void EditBook(Book book)
+        public async Task EditBook(Book book)
         {
-            _bookRepository.Update(book);
+            await _bookRepository.Update(book);
         }
 
-        [HttpPost]
-        public IActionResult Alquilar(Guid id)
+        public async Task<IActionResult> Rent(string id)
         {
-            var result = _bookRepository.Alquilar(id);
+            var result = await _bookRepository.Rent(new Guid(id));
 
             return Json(result);
         }
-        public IActionResult Devolver(Guid id)
+        public async Task<IActionResult> Return(Guid id)
         {
-            _bookRepository.Devolver(id);
+            await _bookRepository.Return(id);
 
             return RedirectToAction("BookList", "Book");
         }
 
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            _bookRepository.Delete(id);
-
+            await _bookRepository.Delete(id);
             return RedirectToAction("BookList", "Book");
         }
 

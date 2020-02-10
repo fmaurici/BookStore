@@ -24,15 +24,14 @@ namespace API.Controllers
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            var bookList = _bookRepository.GetAll();
-            return bookList;
+            return _bookRepository.GetAll().Result;
         }
 
         // GET: api/Book/5
         [HttpGet("{id}")]
         public Book Get(Guid id)
         {
-            return _bookRepository.GetById(id);
+            return _bookRepository.GetById(id).Result;
         }
 
         // POST: api/Book
