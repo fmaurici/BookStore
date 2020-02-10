@@ -86,7 +86,7 @@ namespace CRUD3.Views.Home
         {
             var result = await _bookRepository.Rent(new Guid(id));
 
-            return Json(result);
+             return Json(result);
         }
         public async Task<IActionResult> Return(Guid id)
         {
