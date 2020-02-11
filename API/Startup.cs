@@ -35,26 +35,12 @@ namespace API
             //Allow calls from ajax
             services.AddCors(options =>
             {
-                //options.AddPolicy(MyAllowSpecificOrigins,
-                //builder =>
-                //{
-                //    builder.WithOrigins("http://localhost:3000/")
-                //    .AllowAnyHeader()
-                //    .AllowAnyMethod();
-                //});
-
                 options.AddPolicy("CorsPolicy",
                     builder => builder
                     .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
-
-
             });
-
-           
-
-
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

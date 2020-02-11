@@ -59,8 +59,11 @@ namespace Repositories
         public async Task<int> Rent(Guid id)
         {
             var book = await GetById(id);
+
+            if(book == null) { throw new Exception("Book Id " + id + " not found"); }
+
             book.Rent();
-            await Update(book);
+            await Update(book, id);
             return book.Stock;
         }
         public async Task<int> Return(Guid id)

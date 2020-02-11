@@ -29,26 +29,36 @@ namespace API.Controllers
 
         // GET: api/Book/5
         [HttpGet("{id}")]
-        public Book Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return _bookRepository.GetById(id).Result;
+            var book = await _bookRepository.GetById(id);
+
+            return book == null ? NotFound() : (IActionResult)Ok(book); //Si no existe retorno NotFound, si existe retorno Ok de book
         }
 
         // POST: api/Book
         [HttpPost]
-        public void Post([FromBody] Book book)
+        public async Task<IActionResult> Post([FromBody] Book book)
         {
-            _bookRepository.Insert(book);
+            if (ModelState.IsValid)
+            {
+                await _bookRepository.Insert(book);
+                return new CreatedAtRouteResult("CreatedBook", new { id = book.Id });
+            }
+
+            return BadRequest(ModelState);
         }
-
-
-        //TODO: HACER ALQUILAR METHOD
-
+       
         // PUT: api/Book/5
         [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] Book book)
+        public async Task<IActionResult> Put(Guid id, [FromBody] Book book)
         {
-            _bookRepository.Update(book);
+            if (ModelState.IsValid)
+            {
+                await _bookRepository.Update(book, id);
+                return Ok(new { id = book.Id });
+            }
+            return BadRequest(ModelState);
         }
 
         // DELETE: api/ApiWithActions/5
@@ -57,5 +67,20 @@ namespace API.Controllers
         {
             _bookRepository.Delete(id);
         }
+
+        [HttpPut("Rent/{id}")]
+        public async Task<IActionResult> Rent(Guid id)
+        {
+            try
+            {
+                var newStock = await _bookRepository.Rent(id);
+                return Ok(new { id = id, stock = newStock });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

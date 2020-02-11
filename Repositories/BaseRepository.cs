@@ -38,8 +38,13 @@ namespace Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async virtual Task Update(T obj)
+        public async virtual Task Update(T obj, Guid id = new Guid())
         {
+            if(obj.Id == new Guid())
+            {
+                obj.Id = id;
+            }
+
             _context.Update(obj);
             await _context.SaveChangesAsync();
         }

@@ -11,7 +11,7 @@ namespace IRepositories
         Task<IList<T>> GetAll();
         Task<T> GetById(object id);
         Task Insert(T obj);
-        Task Update(T obj);
+        Task Update(T obj, Guid id = new Guid());
         Task Delete(object id);
 
     }

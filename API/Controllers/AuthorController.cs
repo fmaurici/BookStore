@@ -28,30 +28,45 @@ namespace API.Controllers
 
         // GET: api/Author/5
         [HttpGet("{id}")]
-        public async Task<Author> Get(int id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return await _authorRepository.GetById(id);
+            var author = await _authorRepository.GetById(id);
+
+            return author == null ? NotFound() : (IActionResult)Ok(author);
         }
 
-        //// POST: api/Author
-        //[HttpPost]
-        //public void Post([FromBody] Author author)
-        //{
-        //    _authorRepository.Insert(author);
-        //}
+        // POST: api/Author
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Author author)
+        {
+            if (ModelState.IsValid)
+            {
+                await _authorRepository.Insert(author);
+                return new CreatedAtRouteResult("CreatedBook", new { id = author.Id });
+            }
 
-        //// PUT: api/Author/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] Author author)
-        //{
-        //    _authorRepository.Update(author);
-        //}
+            return BadRequest(ModelState);
 
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //    _authorRepository.Delete(id);
-        //}
+        }
+
+        // PUT: api/Author/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(Guid id, [FromBody] Author author)
+        {
+            if (ModelState.IsValid)
+            {
+                await _authorRepository.Update(author, id);
+                return Ok(new { id = author.Id });
+            }
+            return BadRequest(ModelState);
+
+        }
+
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(Guid id)
+        {
+            _authorRepository.Delete(id);
+        }
     }
 }
