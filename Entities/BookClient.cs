@@ -8,10 +8,8 @@ namespace Entities
     public class BookClient
     {
         public Guid BookId { get; set; }
-        [JsonIgnore]
         public Book Book { get; set; }
         public Guid ClientId { get; set; }
-        [JsonIgnore]
         public Client Client { get; set; }
     }
 }
