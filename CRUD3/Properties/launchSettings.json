@@ -13,6 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "Book/BookList",
       "environmentVariables": {
+        "Secret": "ASDJLIUQWEOIJASDLMZXCIQWEOIUOASD120398ASDLMNZXC09L",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

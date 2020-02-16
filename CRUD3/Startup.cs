@@ -1,17 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Business.Account;
 using Database;
+using Entities;
+using IBusiness.Account;
 using IRepositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Repositories;
 
 namespace CRUD3
@@ -28,23 +37,71 @@ namespace CRUD3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<BookStoreContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("DevConnection"),
+               b => b.MigrationsAssembly("CRUD3")));
+
+            //Add EntityFramework Authentication
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => ConfigurePasswordSettings(options))
+              .AddEntityFrameworkStores<BookStoreContext>()
+              .AddDefaultTokenProviders();
+
+            //Add JWT authentication to handle authentication agains db and entityFramework
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "yourdomain.com", //domains that can give authorizations
+                        ValidAudience = "yourdomain.com", //domains that can recieve authorizations
+                        ClockSkew = TimeSpan.Zero,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Secret"]))
+                        //Above: Using environment variable to produce token. (see API project properties -> debug)
+                    };
+
+                });
+            //.AddCookie(options =>
+            //{
+            //    options.Cookie.Name = "token";
+            //    options.ClaimsIssuer = Configuration["Authentication:ClaimsIssuer"];
+            //});
+
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
 
-            //Acá se agregan las lineas para la inyección de dependencias (3 formas de agregar dependencias)
+            //services.AddControllersWithViews(config =>
+            //{
+            //    var policy = new AuthorizationPolicyBuilder()
+            //                     .RequireAuthenticatedUser()
+            //                     .Build();
 
-            //Scoped objects are the same within a request, but different across different requests.
+            //    config.Filters.Add(new AuthorizeFilter(policy));
+            //});
+
+            //Acá se agregan las lineas para la inyección de dependencias (3 formas de agregar dependencias)
+            ResolveDependencies(services);
+
+        }
+
+        private static void ResolveDependencies(IServiceCollection services)
+        {
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
 
-            //Transient objects are always different; a new instance is provided to every controller and every service.
-            //services.AddTransient<IBookRepository, BookRepository>();
+            services.AddScoped<IAccountManager, AccountManager>();
+        }
 
-            //Singleton objects are the same for every object and every request.
-            //services.AddSingleton<IBookRepository, BookRepository>();
-
-            services.AddDbContext<BookStoreContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+        //Configure password validation to create user
+        private void ConfigurePasswordSettings(IdentityOptions options)
+        {
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireUppercase = false;
+            options.Password.RequiredLength = 1;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,12 +117,16 @@ namespace CRUD3
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
