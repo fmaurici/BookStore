@@ -81,12 +81,15 @@
             },
             success: function (result) {
                 updateStock(result, bookId);
+            },
+            error: function (ex) {
+                alert(ex);
             }
         })
     }
 
-    var updateStock = function (data, bookId) {
-        $('#Stock' + bookId).html(data);
+    var updateStock = function (stock, bookId) {
+        $('#Stock' + bookId).html(stock);
     }
 
 </script>

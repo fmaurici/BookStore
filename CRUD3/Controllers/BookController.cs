@@ -82,11 +82,19 @@ namespace CRUD3.Views.Home
             await _bookRepository.Update(book);
         }
 
-        public async Task<IActionResult> Rent(string id)
+        public async Task<IActionResult> Rent(Guid id)
         {
-            var result = await _bookRepository.Rent(new Guid(id));
+            try
+            {
+                var result = await _bookRepository.Rent(id);
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-            return Json(result);
+            
         }
         public async Task<IActionResult> Return(Guid id)
         {
