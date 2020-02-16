@@ -19,7 +19,7 @@ namespace Entities
 
         public int Return()
         {
-            return this.Stock -= 1;
+            return this.Stock += 1;
         }
     }
 }
