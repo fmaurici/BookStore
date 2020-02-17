@@ -4,25 +4,39 @@
     ViewData["Title"] = "Login";
 }
 
-<form asp-controller="Account" asp-action="Login"
-      asp-route-returnurl="@Model.ReturnUrl">
+<h4 style="color:aqua">Log In</h4>
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-6 textGrey">
+        <form asp-controller="Account" asp-action="SignIn" asp-route-returnurl="@Model.ReturnUrl">
+            @{
+                if (!String.IsNullOrEmpty(Model.Errors))
+                {
+                    <h2 class="text-danger">@Model.Errors</h2>
+                }
+            }
+            <div class="form-group col-md-10">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
 
-    <div>
-        <label asp-for="Email"></label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+            <div class="form-group col-md-10">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-check col-md-10">
+                <div class="form-check-inline">
+                    <label asp-for="RememberMe" class="form-check-label">
+                        Remember Me
+                        <input asp-for="RememberMe" class="form-check-input" />
+                    </label>
+                    <span asp-validation-for="RememberMe" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group col-md-10">
+                <input type="submit" value="LogIn" class="btn btn-success btn-block" />
+            </div>
+        </form>
     </div>
-
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-
-    <div>
-        <label asp-for="RememberMe"></label>
-        <input asp-for="RememberMe" />
-        <span asp-validation-for="RememberMe"></span>
-    </div>
-    <input type="submit" value="Login" />
-</form>
+</div>

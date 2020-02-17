@@ -127,6 +127,10 @@ namespace API
             options.Password.RequireLowercase = false;
             options.Password.RequireUppercase = false;
             options.Password.RequiredLength = 1;
+
+            options.Lockout.MaxFailedAccessAttempts = 10;
+
+            options.User.RequireUniqueEmail = true;
         }
 
         //Configuring Json to handle loops automatically

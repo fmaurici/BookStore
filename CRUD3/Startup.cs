@@ -46,30 +46,8 @@ namespace CRUD3
               .AddEntityFrameworkStores<BookStoreContext>()
               .AddDefaultTokenProviders();
 
-            //Add JWT authentication to handle authentication agains db and entityFramework
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = "yourdomain.com", //domains that can give authorizations
-                        ValidAudience = "yourdomain.com", //domains that can recieve authorizations
-                        ClockSkew = TimeSpan.Zero,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Secret"]))
-                        //Above: Using environment variable to produce token. (see API project properties -> debug)
-                    };
-
-                });
-            //.AddCookie(options =>
-            //{
-            //    options.Cookie.Name = "token";
-            //    options.ClaimsIssuer = Configuration["Authentication:ClaimsIssuer"];
-            //});
-
             services.AddAutoMapper(typeof(Startup));
+            
             services.AddControllersWithViews();
 
             //services.AddControllersWithViews(config =>
@@ -124,9 +102,9 @@ namespace CRUD3
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
             app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -16,11 +16,14 @@ using static Business.Enums;
 
 namespace CRUD3.Views.Home
 {
+    //Con este action filter restrinjo el acceso a todos los action del controller 
+    //(tambien se puede poner solo en actions específicos, arriba de cada uno de ellos)
+    [Authorize]
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
         private readonly IMapper _mapper;
-
+        
         //Constructor
         public BookController(IBookRepository bookRepository, IMapper mapper)
         {
@@ -62,7 +65,7 @@ namespace CRUD3.Views.Home
             var book = _mapper.Map<Book>(model); ;
 
             //Si mi entidad no existe (osea, su Guid es igual a un New Guid), entonces voy a CreateBook. Si mi entidad existe, entonces voy a EditBook
-            if (model.Id == new Guid())
+            if (model.Id == new Guid()) //TODO: cambiar por GUID.Empty
             {
                 await CreateBook(book);
             }
@@ -95,13 +98,11 @@ namespace CRUD3.Views.Home
             {
                 throw ex;
             }
-
-            
         }
+
         public async Task<IActionResult> Return(Guid id)
         {
             await _bookRepository.Return(id);
-
             return RedirectToAction("BookList", "Book");
         }
 
@@ -110,7 +111,5 @@ namespace CRUD3.Views.Home
             await _bookRepository.Delete(id);
             return RedirectToAction("BookList", "Book");
         }
-
-
     }
 }

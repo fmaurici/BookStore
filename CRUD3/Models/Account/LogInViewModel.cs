@@ -16,5 +16,6 @@ namespace CRUD3.Models.Account
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
         public string ReturnUrl { get; set; }
+        public string Errors { get; set; }
     }
 }

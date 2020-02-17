@@ -21,7 +21,7 @@ namespace CRUD3.Controllers
             _accountManager = accountManager;
         }
 
-        public IActionResult LoginView(string returnUrl = "")
+        public IActionResult Login(string returnUrl = "")
         {
             var model = new LogInViewModel { ReturnUrl = returnUrl };
             return View("Login", model);
@@ -49,30 +49,29 @@ namespace CRUD3.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LogInViewModel logInViewModel)
+        public async Task<IActionResult> SignIn(LogInViewModel logInViewModel)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var userInfo = new UserInfo() { Email = logInViewModel.Email, Password = logInViewModel.Password };
-                var result = await _accountManager.LogIn(userInfo);
-                if (result.Succeeded)
-                {
-                    var token = _accountManager.BuildToken(userInfo);
-                    //CookieOptions option = new CookieOptions();
-                    //Response.Cookies.Append("token","Bearer " + token.Token, option);
+                return View("LogIn", logInViewModel);
+            }
 
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return BadRequest(ModelState);
-                }
+            var userInfo = new UserInfo() { Email = logInViewModel.Email, Password = logInViewModel.Password };
+            var result = await _accountManager.LogIn(userInfo);
+            if (result.Succeeded)
+            {
+                //var token = _accountManager.BuildToken(userInfo);
+                //CookieOptions option = new CookieOptions();
+                //Response.Cookies.Append("token","Bearer " + token.Token, option);
+
+                return Redirect(logInViewModel.ReturnUrl);
             }
             else
             {
-                return BadRequest(ModelState);
+                logInViewModel.Errors = "Invalid login attempt.";
+                return View("LogIn", logInViewModel);
             }
+
         }
 
         public async Task<IActionResult> Logout()
