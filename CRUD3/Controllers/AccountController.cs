@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using CRUD3.Models.Account;
 using Entities;
 using IBusiness.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace CRUD3.Controllers
 {
@@ -15,10 +17,12 @@ namespace CRUD3.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountManager _accountManager;
+        private readonly IMapper _mapper;
 
-        public AccountController(IAccountManager accountManager)
+        public AccountController(IAccountManager accountManager, IMapper mapper)
         {
             _accountManager = accountManager;
+           _mapper = mapper;
         }
 
         public IActionResult Login(string returnUrl = "")
@@ -27,24 +31,32 @@ namespace CRUD3.Controllers
             return View("Login", model);
         }
 
-        public async Task<IActionResult> CreateUser([FromBody] UserInfo model)
+        public IActionResult Register(string returnUrl = "")
         {
-            if (ModelState.IsValid)
+            var model = new RegisterViewModel { ReturnUrl = returnUrl };
+            return View(model);
+        }
+
+        public async Task<IActionResult> CreateUser(RegisterViewModel registerViewModel)
+        {
+            if (!ModelState.IsValid)
             {
-                var result = await _accountManager.CreateUser(model);
-                if (result.Succeeded)
-                {
-                    return BuildToken(model);
-                }
-                else
-                {
-                    string errorMessages = _accountManager.GetAuthenticationErrors(result);
-                    return BadRequest(errorMessages);
-                }
+                return View("Register", registerViewModel);
+            }
+
+            var userInfo = _mapper.Map<UserInfo>(registerViewModel);  
+            var result = await _accountManager.CreateUser(userInfo);
+
+            if (result.Succeeded)
+            {
+                var loginViewModel = _mapper.Map<LogInViewModel>(registerViewModel);
+                return await SignIn(loginViewModel);
             }
             else
             {
-                return BadRequest(ModelState);
+                string errorMessages = _accountManager.GetAuthenticationErrors(result);
+                ModelState.AddModelError(string.Empty, errorMessages);
+                return View("Register", registerViewModel);
             }
         }
 
@@ -56,39 +68,25 @@ namespace CRUD3.Controllers
                 return View("LogIn", logInViewModel);
             }
 
-            var userInfo = new UserInfo() { Email = logInViewModel.Email, Password = logInViewModel.Password, RememberMe= logInViewModel.RememberMe };
+            var userInfo = _mapper.Map<UserInfo>(logInViewModel);
             var result = await _accountManager.LogIn(userInfo);
+            
             if (result.Succeeded)
             {
-                //var token = _accountManager.BuildToken(userInfo);
-                //CookieOptions option = new CookieOptions();
-                //Response.Cookies.Append("token","Bearer " + token.Token, option);
-
-                return Redirect(logInViewModel.ReturnUrl);
+                var returnUrl = logInViewModel.ReturnUrl ?? "/Home/Index";
+                return Redirect(returnUrl);
             }
             else
             {
-                logInViewModel.Errors = "Invalid login attempt.";
+                ModelState.AddModelError(string.Empty, "The username or password do not match.");
                 return View("LogIn", logInViewModel);
             }
-
         }
 
         public async Task<IActionResult> Logout()
         {
             await _accountManager.LogOut();
             return RedirectToAction("Index", "Home");
-        }
-
-        private IActionResult BuildToken(UserInfo userInfo)
-        {
-            var tokenObject = _accountManager.BuildToken(userInfo);
-
-            return Ok(new
-            {
-                token = tokenObject.Token,
-                expiration = tokenObject.Expiration
-            });
         }
 
     }
