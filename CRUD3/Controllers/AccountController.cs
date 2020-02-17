@@ -56,7 +56,7 @@ namespace CRUD3.Controllers
                 return View("LogIn", logInViewModel);
             }
 
-            var userInfo = new UserInfo() { Email = logInViewModel.Email, Password = logInViewModel.Password };
+            var userInfo = new UserInfo() { Email = logInViewModel.Email, Password = logInViewModel.Password, RememberMe= logInViewModel.RememberMe };
             var result = await _accountManager.LogIn(userInfo);
             if (result.Succeeded)
             {

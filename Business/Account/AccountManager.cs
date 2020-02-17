@@ -67,7 +67,7 @@ namespace Business.Account
         public async Task<SignInResult> LogIn(UserInfo userInfo)
         {
             //isPersistent helps to store the cookie after the session ends (should only when you press remember Me in login)
-            return await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: false, lockoutOnFailure: false);
+            return await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
         }
 
         public async Task<SignInResult> LogOut()
