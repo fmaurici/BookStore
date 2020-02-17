@@ -14,5 +14,9 @@ namespace IBusiness.Account
         string GetAuthenticationErrors(IdentityResult result);
         Task<SignInResult> LogIn(UserInfo userInfo);
         Task<SignInResult> LogOut();
+        Task<ApplicationUser> GetUserById(Guid selectedUser);
+        Task<ApplicationRole> GetRoleById(Guid selectedRole);
+        Task<IdentityResult> CreateRole(RoleInfo role);
+        Task<IdentityResult> AddUserToRole(string userId, string roleId);
     }
 }

@@ -16,16 +16,31 @@ namespace Business.Account
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IConfiguration _configuration;
 
         public AccountManager(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
+            RoleManager<ApplicationRole> roleManager,
             IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            this._configuration = configuration;
+            _roleManager = roleManager;
+            _configuration = configuration;
+        }
+
+        public async Task<SignInResult> LogIn(UserInfo userInfo)
+        {
+            //isPersistent helps to store the cookie after the session ends (should only when you press remember Me in login)
+            return await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
+        }
+
+        public async Task<SignInResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return SignInResult.Success;
         }
 
         public async Task<IdentityResult> CreateUser(UserInfo model)
@@ -64,18 +79,6 @@ namespace Business.Account
             return tokenObject;
         }
 
-        public async Task<SignInResult> LogIn(UserInfo userInfo)
-        {
-            //isPersistent helps to store the cookie after the session ends (should only when you press remember Me in login)
-            return await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
-        }
-
-        public async Task<SignInResult> LogOut()
-        {
-            await _signInManager.SignOutAsync();
-            return SignInResult.Success;
-        }
-
         public string GetAuthenticationErrors(IdentityResult result)
         {
             string errorMessages = string.Empty;
@@ -85,6 +88,32 @@ namespace Business.Account
             }
 
             return "Username or password invalid " + errorMessages;
+        }
+
+        public async Task<ApplicationUser> GetUserById(Guid selectedUser)
+        {
+            return await _userManager.FindByIdAsync(selectedUser.ToString());
+        }
+
+        public async Task<ApplicationRole> GetRoleById(Guid selectedRole)
+        {
+            return await _roleManager.FindByIdAsync(selectedRole.ToString());
+        }
+
+        public async Task<IdentityResult> CreateRole(RoleInfo roleInfo)
+        {
+            var role = new ApplicationRole() { Name = roleInfo.Name };
+            return await _roleManager.CreateAsync(role);
+        }
+
+        public async Task<IdentityResult> AddUserToRole(string userId, string roleId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            var role = await _roleManager.FindByIdAsync(roleId);
+
+            var roleName = await _roleManager.GetRoleNameAsync(role);
+
+            return await _userManager.AddToRoleAsync(user, roleName);
         }
     }
 }

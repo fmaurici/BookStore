@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Database
 {
-    public class BookStoreContext : IdentityDbContext<ApplicationUser>
+    public class BookStoreContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options)
         {
@@ -22,6 +22,16 @@ namespace Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>(b =>
+            {
+                b.Property(u => u.Id).HasDefaultValueSql("newsequentialid()");
+            });
+
+            modelBuilder.Entity<ApplicationRole>(b =>
+            {
+                b.Property(u => u.Id).HasDefaultValueSql("newsequentialid()");
+            });
 
             //Esto es para poder configurar la relacion muchos a muchos entre Books y Clientes en Entity Framework
             //(Cada book puede tener muchos clients, y cada client puede tener muchos books)

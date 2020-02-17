@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CRUD3.Profiles
 {
-    public class LogInProfile: Profile
+    public class LogInProfile : Profile
     {
         public LogInProfile()
         {

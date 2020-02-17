@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -42,7 +43,7 @@ namespace CRUD3
                b => b.MigrationsAssembly("CRUD3")));
 
             //Add EntityFramework Authentication
-            services.AddIdentity<ApplicationUser, IdentityRole>(options => ConfigurePasswordSettings(options))
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options => ConfigurePasswordSettings(options))
               .AddEntityFrameworkStores<BookStoreContext>()
               .AddDefaultTokenProviders();
 

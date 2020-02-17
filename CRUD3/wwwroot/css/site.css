@@ -74,3 +74,8 @@ body {
 .textGrey label {
     color: grey;
 }
+
+.input-group-addon {
+    color: aqua;
+    background-color: grey;
+}

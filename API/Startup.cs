@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -52,7 +53,7 @@ namespace API
                 b => b.MigrationsAssembly("API")));
 
             //Add EntityFramework Authentication
-            services.AddIdentity<ApplicationUser, IdentityRole>(options => ConfigurePasswordSettings(options))
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options => ConfigurePasswordSettings(options))
               .AddEntityFrameworkStores<BookStoreContext>()
               .AddDefaultTokenProviders();
 

@@ -62,7 +62,7 @@ namespace CRUD3.Views.Home
         public async Task<IActionResult> CreateOrEdit(BookViewModel model)
         {
             // Convierto mi ViewModel en Entity con Automapper
-            var book = _mapper.Map<Book>(model); ;
+            var book = _mapper.Map<Book>(model);
 
             //Si mi entidad no existe (osea, su Guid es igual a un New Guid), entonces voy a CreateBook. Si mi entidad existe, entonces voy a EditBook
             if (model.Id == new Guid()) //TODO: cambiar por GUID.Empty
