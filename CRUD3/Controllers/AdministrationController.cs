@@ -27,9 +27,24 @@ namespace CRUD3.Controllers
             return View();
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> EditUser(Guid id)
         {
-            return View();
+            var user = await _accountManager.GetUserWithRolesById(id);
+            var userViewModel = _mapper.Map<UserViewModel>(user);
+            userViewModel.Roles = user.Roles.Select(x => _mapper.Map<RoleViewModel>(x)).ToList();
+
+
+            return View(userViewModel);
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var viewModel = new AdministrationViewModel() { Users = new List<UserViewModel>()};
+            var users = await _accountManager.GetAllUsersWithRoles();
+
+            viewModel.Users = users.Select(x => _mapper.Map<UserViewModel>(x)).ToList();
+            
+            return View(viewModel);
         }
 
         public async Task<IActionResult> CreateRole(RoleViewModel model)
@@ -40,11 +55,32 @@ namespace CRUD3.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> AddUserToRole(AdministrationViewModel model)
-        {
-            await _accountManager.AddUserToRole(model.SelectedUser.ToString(), model.SelectedRole.ToString());
+        //public async Task<IActionResult> AddUserToRole(AdministrationViewModel model)
+        //{
+        //    await _accountManager.AddUserToRole(model.SelectedUser.ToString(), model.SelectedRole.ToString());
 
+        //    return RedirectToAction("Index");
+        //}
+
+        public async Task<IActionResult> UpdateUser(UserViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Index", model);
+            }
+
+            var userInfo = _mapper.Map<UserInfo>(model);
+            var result = await _accountManager.UpdateUser(userInfo);
+
+            if (!result.Succeeded)
+            {
+                string errorMessages = _accountManager.GetAuthenticationErrors(result);
+                ModelState.AddModelError(string.Empty, errorMessages);
+                return View("Index", model);
+            }
+            
             return RedirectToAction("Index");
+
         }
     }
 }

@@ -75,7 +75,15 @@ body {
     color: grey;
 }
 
-.input-group-addon {
-    color: aqua;
-    background-color: grey;
+h4 {
+    color:aqua;
 }
+
+.thead-aqua th {
+    color: aqua;
+}
+
+.table-background-black {
+    background-color: black;
+}
+

@@ -1,11 +1,14 @@
-﻿using Entities;
+﻿using AutoMapper;
+using Entities;
 using IBusiness.Account;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,17 +20,20 @@ namespace Business.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
+        private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
 
         public AccountManager(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             RoleManager<ApplicationRole> roleManager,
+            IMapper mapper,
             IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _mapper = mapper;
             _configuration = configuration;
         }
 
@@ -46,9 +52,7 @@ namespace Business.Account
         public async Task<IdentityResult> CreateUser(UserInfo model)
         {
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            return result;
+            return await _userManager.CreateAsync(user, model.Password);
         }
 
         public AuthenticationToken BuildToken(UserInfo userInfo)
@@ -90,30 +94,96 @@ namespace Business.Account
             return "Username or password invalid " + errorMessages;
         }
 
-        public async Task<ApplicationUser> GetUserById(Guid selectedUser)
+        public async Task<IList<UserInfo>> GetAllUsers()
         {
-            return await _userManager.FindByIdAsync(selectedUser.ToString());
+            IList<ApplicationUser> users = await _userManager.Users.ToListAsync();
+
+            var usersInfo = users.Select(x => _mapper.Map<UserInfo>(x)).ToList();
+
+            return usersInfo;
         }
 
-        public async Task<ApplicationRole> GetRoleById(Guid selectedRole)
+        public async Task<IList<UserInfo>> GetAllUsersWithRoles()
         {
-            return await _roleManager.FindByIdAsync(selectedRole.ToString());
+            var usersInfo = new List<UserInfo>();
+            IList<ApplicationUser> users = await _userManager.Users.ToListAsync();
+
+            foreach (var user in users)
+            {
+                var userInfo = _mapper.Map<UserInfo>(user);
+                var roles = await GetRolesByUser(user);
+                var rolesInfo = roles.Select(x => _mapper.Map<RoleInfo>(x)).ToList();
+                userInfo.Roles = rolesInfo;
+                usersInfo.Add(userInfo);
+            }
+
+            return usersInfo;
+        }
+
+
+        public async Task<IList<RoleInfo>> GetRolesByUser(ApplicationUser user)
+        {
+            var roles = await _userManager.GetRolesAsync(user);
+            var rolesInfo = roles.Select(x => new RoleInfo() { Name = x }).ToList();
+            return rolesInfo;
+        }
+
+        public async Task<UserInfo> GetUserById(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var userInfo = _mapper.Map<UserInfo>(user);
+            return userInfo;
+        }
+
+        public async Task<UserInfo> GetUserWithRolesById(Guid userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var roles = await GetRolesByUser(user);
+            var userInfo = _mapper.Map<UserInfo>(user);
+            userInfo.Roles = roles;
+            return userInfo;
+        }
+
+        public async Task<RoleInfo> GetRoleById(Guid roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId.ToString());
+            var roleInfo = _mapper.Map<RoleInfo>(role);
+            return roleInfo;
         }
 
         public async Task<IdentityResult> CreateRole(RoleInfo roleInfo)
         {
-            var role = new ApplicationRole() { Name = roleInfo.Name };
+            ApplicationRole role = _mapper.Map<ApplicationRole>(roleInfo);
             return await _roleManager.CreateAsync(role);
         }
 
-        public async Task<IdentityResult> AddUserToRole(string userId, string roleId)
+        public async Task<IdentityResult> UpdateRole(RoleInfo roleInfo)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-            var role = await _roleManager.FindByIdAsync(roleId);
+            ApplicationRole role = _mapper.Map<ApplicationRole>(roleInfo);
+            return await _roleManager.UpdateAsync(role);
+        }
 
-            var roleName = await _roleManager.GetRoleNameAsync(role);
+        public async Task<IdentityResult> UpdateUser(UserInfo userInfo)
+        {
+            var userToUpdate = await _userManager.FindByIdAsync(userInfo.Id.ToString());
+            userToUpdate.FirstName = userInfo.FirstName;
+            userToUpdate.LastName = userInfo.LastName;
 
-            return await _userManager.AddToRoleAsync(user, roleName);
+            await AddUserToRole(userInfo.Id, userInfo.Roles.Select(x => x.Name).ToList());
+
+            return await _userManager.UpdateAsync(userToUpdate);
+        }
+
+        public async Task<IdentityResult> AddUserToRole(Guid userId, IList<string> roleNames)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            foreach (var roleName in roleNames)
+            {
+                await _userManager.AddToRoleAsync(user, roleName);
+            }
+
+            return IdentityResult.Success;
         }
     }
 }

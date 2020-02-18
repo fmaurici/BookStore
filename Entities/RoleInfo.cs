@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entities
 {
-    public class RoleInfo
+    public class RoleInfo : BaseEntity
     {
         public string Name { get; set; }
     }

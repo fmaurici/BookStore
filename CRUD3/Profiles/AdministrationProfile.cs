@@ -13,6 +13,9 @@ namespace CRUD3.Profiles
         public AdministrationProfile()
         {
             CreateMap<RoleInfo, RoleViewModel>().ReverseMap();
+            CreateMap<UserInfo, UserViewModel>().ReverseMap();
+            CreateMap<UserInfo, ApplicationUser>().ReverseMap();
+            CreateMap<RoleInfo, ApplicationRole>().ReverseMap();
         }
     }
 }
