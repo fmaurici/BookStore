@@ -102,8 +102,16 @@ namespace CRUD3.Views.Home
 
         public async Task<IActionResult> Return(Guid id)
         {
-            await _bookRepository.Return(id);
-            return RedirectToAction("BookList", "Book");
+            try
+            {
+                var result = await _bookRepository.Return(id);
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+                       
         }
 
         public async Task<IActionResult> Delete(Guid id)

@@ -69,8 +69,10 @@ namespace Repositories
         public async Task<int> Return(Guid id)
         {
             var book = await GetById(id);
+            if (book == null) { throw new Exception("Book Id " + id + " not found"); }
+            // Aca usa la funcioinalidad de BOOK dentro de Entitybook.
             book.Return();
-            await Update(book);
+            await Update(book,id);
             return book.Stock;
         }
     }

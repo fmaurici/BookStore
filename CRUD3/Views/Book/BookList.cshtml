@@ -47,8 +47,8 @@
                 <td>
                     <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
                     <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
-                    <a class="RentButton" value="@item.Id"><i class="btn btn-outline-warning">Rent</i></a>
-                    <a asp-controller="Book" asp-action="Devolver" asp-route-id="@item.Id"><i class="btn btn-outline-secondary">Devolver</i></a>
+                    <a class="RentButton" value="@item.Id" action="Rent"><i class="btn btn-outline-warning">Rent</i></a>
+                    <a class="ReturnButton" value="@item.Id" action="Return"><i class="btn btn-outline-secondary">Return</i></a>
                 </td>
             </tr>
         }
@@ -60,14 +60,15 @@
 
 <script type="text/javascript">
 
-    $(".RentButton").on("click", function () {
+    $(".RentButton, .ReturnButton").on("click", function () {
         var self = $(this);
-        var rentedBookId = self.attr("value");
-        rentAction(rentedBookId);
+        var bookId = self.attr("value");
+        var action = self.attr("action");
+        rentOrReturnAction(bookId, action);
     })
 
-    var rentAction = function (bookId) {
-        var url = "/Book/Rent";
+    var rentOrReturnAction = function (bookId, action) {
+        var url = "/Book/" + action;
         $.ajax({
             type: "POST",
             url: url,
@@ -87,6 +88,8 @@
     var updateStock = function (stock, bookId) {
         $('#Stock' + bookId).html(stock);
     }
+
+
 
 </script>
 
