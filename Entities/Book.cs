@@ -10,6 +10,7 @@ namespace Entities
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public Author Author { get; set; }
+        public Editorial Editorial { get; set; }
         public virtual IList<BookClient> BookClients { get; set; }
 
         public int Rent()

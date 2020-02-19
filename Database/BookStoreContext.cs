@@ -18,6 +18,7 @@ namespace Database
         public DbSet<Client> Clients { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BookClient> BookClients { get; set; }
+        public DbSet<Editorial> Editorial { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
