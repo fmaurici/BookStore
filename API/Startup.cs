@@ -1,3 +1,4 @@
+using AutoMapper;
 using Business.Account;
 using Database;
 using Entities;
@@ -103,6 +104,8 @@ namespace API
                     }
                 });
             });
+
+            services.AddAutoMapper(typeof(Startup));
 
             //We add the controllers and also we call Json configuration to handle loops automatically
             services.AddControllers().AddNewtonsoftJson(ConfigureJson);
