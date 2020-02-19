@@ -341,3 +341,5 @@ healthchecksdb
 
 # Appsettings.json
 appsettings.json
+API/appsettings.json
+CRUD3/appsettings.json
