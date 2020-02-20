@@ -134,7 +134,7 @@ namespace API
 
             options.Lockout.MaxFailedAccessAttempts = 10;
 
-            options.User.RequireUniqueEmail = true;
+            //options.User.RequireUniqueEmail = true;
         }
 
         //Configuring Json to handle loops automatically
@@ -176,27 +176,27 @@ namespace API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookStore V1");
             });
 
-            //if (!context.Books.Any())
-            //{
-            //    var rowlingAuthor = new Author() { Name = "J. K. Rowling" };
-            //    var tolkienAuthor = new Author() { Name = "J. R. R. Tolkien" };
-            //    var marquezAuthor = new Author() { Name = "Garcia Marquez" };
-            //    var witcherAuthor = new Author() { Name = "Andrzej Sapkowski" };
-            //    var principitoAuthor = new Author() { Name = "Antoine de Saint-Exupery" };
+            if (!context.Books.Any())
+            {
+                var rowlingAuthor = new Author() { Name = "J. K. Rowling" };
+                var tolkienAuthor = new Author() { Name = "J. R. R. Tolkien" };
+                var marquezAuthor = new Author() { Name = "Garcia Marquez" };
+                var witcherAuthor = new Author() { Name = "Andrzej Sapkowski" };
+                var principitoAuthor = new Author() { Name = "Antoine de Saint-Exupery" };
 
-            //    var franClient = new Client() { Name = "Fran" };
-            //    var diegoClient = new Client() { Name = "Diego" };
+                var franClient = new Client() { Name = "Fran" };
+                var diegoClient = new Client() { Name = "Diego" };
 
-            //    context.Books.AddRange(new List<Book>(){
-            //        new Book() { Name = "Harry Potter y la Camara Secreta", Price = 10, Stock = 200, Author = rowlingAuthor },
-            //        new Book() { Name = "Harry Potter y la Piedra Filosofal", Price = 20, Stock = 220, Author = rowlingAuthor },
-            //        new Book() { Name = "El Señor de los Anillos: La Comunidad del Anillo", Price = 30, Stock = 30, Author = tolkienAuthor },
-            //        new Book() { Name = "El Principito", Price = 40, Stock = 150, Author = principitoAuthor },
-            //        new Book() { Name = "The Witcher", Price = 50, Stock = 50, Author = witcherAuthor },
-            //    });
+                context.Books.AddRange(new List<Book>(){
+                    new Book() { Name = "Harry Potter y la Camara Secreta", Price = 10, Stock = 200, Author = rowlingAuthor },
+                    new Book() { Name = "Harry Potter y la Piedra Filosofal", Price = 20, Stock = 220, Author = rowlingAuthor },
+                    new Book() { Name = "El Señor de los Anillos: La Comunidad del Anillo", Price = 30, Stock = 30, Author = tolkienAuthor },
+                    new Book() { Name = "El Principito", Price = 40, Stock = 150, Author = principitoAuthor },
+                    new Book() { Name = "The Witcher", Price = 50, Stock = 50, Author = witcherAuthor },
+                });
 
-            //    context.SaveChanges();
-            //}
+                context.SaveChanges();
+            }
         }
     }
 }

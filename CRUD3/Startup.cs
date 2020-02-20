@@ -1,27 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
 using Business.Account;
 using Database;
 using Entities;
 using IBusiness.Account;
 using IRepositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
 using Repositories;
 
 namespace CRUD3
@@ -51,15 +40,6 @@ namespace CRUD3
             
             services.AddControllersWithViews();
 
-            //services.AddControllersWithViews(config =>
-            //{
-            //    var policy = new AuthorizationPolicyBuilder()
-            //                     .RequireAuthenticatedUser()
-            //                     .Build();
-
-            //    config.Filters.Add(new AuthorizeFilter(policy));
-            //});
-
             //Acá se agregan las lineas para la inyección de dependencias (3 formas de agregar dependencias)
             ResolveDependencies(services);
 
@@ -81,6 +61,8 @@ namespace CRUD3
             options.Password.RequireLowercase = false;
             options.Password.RequireUppercase = false;
             options.Password.RequiredLength = 1;
+
+            options.User.RequireUniqueEmail = true;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

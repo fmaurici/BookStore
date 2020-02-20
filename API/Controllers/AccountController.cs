@@ -32,7 +32,7 @@ namespace API.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _accountManager.CreateUser(model);
+                var result = await _accountManager.CreateUserWithViewRole(model);
                 if (result.Succeeded)
                 {
                     return BuildToken(model);

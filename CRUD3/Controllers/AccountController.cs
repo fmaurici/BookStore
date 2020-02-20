@@ -45,7 +45,7 @@ namespace CRUD3.Controllers
             }
 
             var userInfo = _mapper.Map<UserInfo>(registerViewModel);  
-            var result = await _accountManager.CreateUser(userInfo);
+            var result = await _accountManager.CreateUserWithViewRole(userInfo);
 
             if (result.Succeeded)
             {

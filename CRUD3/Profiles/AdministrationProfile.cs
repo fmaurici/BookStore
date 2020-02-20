@@ -12,10 +12,24 @@ namespace CRUD3.Profiles
     {
         public AdministrationProfile()
         {
-            CreateMap<RoleInfo, RoleViewModel>().ReverseMap();
-            CreateMap<UserInfo, UserViewModel>().ReverseMap();
             CreateMap<UserInfo, ApplicationUser>().ReverseMap();
             CreateMap<RoleInfo, ApplicationRole>().ReverseMap();
+
+            CreateMap<RoleInfo, RoleViewModel>().ReverseMap();
+
+            CreateMap<UserInfo, UserViewModel>()
+                .ForMember(
+                 vm => vm.SelectedRoles, opt => opt.MapFrom(
+                     src => src.Roles.Select(r => r.Name)
+                     )
+                );
+
+            CreateMap<UserViewModel, UserInfo>()
+                .ForMember(
+                 entity => entity.Roles, opt => opt.MapFrom(
+                     src => src.SelectedRoles.Select(selectedRole => new RoleInfo() { Name = selectedRole })
+                     )
+                );
         }
     }
 }

@@ -9,7 +9,7 @@ namespace IBusiness.Account
 {
     public interface IAccountManager
     {
-        Task<IdentityResult> CreateUser(UserInfo model);
+        Task<IdentityResult> CreateUserWithViewRole(UserInfo model);
         Task<IdentityResult> UpdateUser(UserInfo userInfo);
         AuthenticationToken BuildToken(UserInfo userInfo);
         string GetAuthenticationErrors(IdentityResult result);
@@ -20,6 +20,7 @@ namespace IBusiness.Account
         Task<RoleInfo> GetRoleById(Guid roleId);
         Task<IdentityResult> CreateRole(RoleInfo role);
         Task<IList<UserInfo>> GetAllUsers();
+        Task<IList<RoleInfo>> GetAllRoles();
         Task<IList<UserInfo>> GetAllUsersWithRoles();
         Task<IList<RoleInfo>> GetRolesByUser(ApplicationUser user);
     }

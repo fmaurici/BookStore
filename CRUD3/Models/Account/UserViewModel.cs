@@ -9,17 +9,18 @@ namespace CRUD3.Models.Account
     public class UserViewModel
     {
         public Guid Id { get; set; }
-        public string SecurityStamp { get; set; }
         public string UserName { get; set; }
         public string Name { get { return FirstName + " " + LastName; } }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public List<RoleViewModel> Roles { get; set; }
-        public List<SelectListItem> RoleList { get { return RolesToSelectList(); } }
-        public List<SelectListItem> RolesToSelectList()
+        public MultiSelectList RoleList { get { return RolesToSelectList(); } }
+        public string[] SelectedRoles { get; set; }
+
+        public MultiSelectList RolesToSelectList()
         {
-            return Roles.Select(role => new SelectListItem {Value = role.Name, Text = role.Name}).ToList();
+            return Roles != null ? new MultiSelectList(Roles, "Name", "Name") : new MultiSelectList(new List<RoleViewModel>());
         }
 
     }

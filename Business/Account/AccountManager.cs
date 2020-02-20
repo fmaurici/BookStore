@@ -35,12 +35,14 @@ namespace Business.Account
             _roleManager = roleManager;
             _mapper = mapper;
             _configuration = configuration;
+
+            
         }
 
         public async Task<SignInResult> LogIn(UserInfo userInfo)
         {
             //isPersistent helps to store the cookie after the session ends (should only when you press remember Me in login)
-            return await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
+            return await _signInManager.PasswordSignInAsync(userInfo.UserName, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
         }
 
         public async Task<SignInResult> LogOut()
@@ -49,10 +51,14 @@ namespace Business.Account
             return SignInResult.Success;
         }
 
-        public async Task<IdentityResult> CreateUser(UserInfo model)
+        public async Task<IdentityResult> CreateUserWithViewRole(UserInfo model)
         {
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            return await _userManager.CreateAsync(user, model.Password);
+            
+            var createdUser = await _userManager.CreateAsync(user, model.Password);
+            await _userManager.AddToRoleAsync(user, "View");
+
+            return createdUser;
         }
 
         public AuthenticationToken BuildToken(UserInfo userInfo)
@@ -60,8 +66,8 @@ namespace Business.Account
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-                //new Claim("miValor", "Lo que yo quiera"),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                //new Claim("miValor", "Lo que yo quiera")
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Secret"]));
@@ -100,7 +106,18 @@ namespace Business.Account
 
             var usersInfo = users.Select(x => _mapper.Map<UserInfo>(x)).ToList();
 
+            
+
             return usersInfo;
+        }
+
+        public async Task<IList<RoleInfo>> GetAllRoles()
+        {
+            IList<ApplicationRole> roles = await _roleManager.Roles.ToListAsync();
+
+            var rolesInfo = roles.Select(x => _mapper.Map<RoleInfo>(x)).ToList();
+
+            return rolesInfo;
         }
 
         public async Task<IList<UserInfo>> GetAllUsersWithRoles()
@@ -117,9 +134,14 @@ namespace Business.Account
                 usersInfo.Add(userInfo);
             }
 
+            //Si no hay data de prueba, agrego roles y usuarios de prueba
+            //if (!_roleManager.Roles.Any(x => x.Name == "View"))
+            //{
+            //    await AddTestData();
+            //}
+
             return usersInfo;
         }
-
 
         public async Task<IList<RoleInfo>> GetRolesByUser(ApplicationUser user)
         {
@@ -169,21 +191,52 @@ namespace Business.Account
             userToUpdate.FirstName = userInfo.FirstName;
             userToUpdate.LastName = userInfo.LastName;
 
-            await AddUserToRole(userInfo.Id, userInfo.Roles.Select(x => x.Name).ToList());
+            await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
 
             return await _userManager.UpdateAsync(userToUpdate);
         }
 
-        public async Task<IdentityResult> AddUserToRole(Guid userId, IList<string> roleNames)
+        public async Task<IdentityResult> UpdateUserRoles(ApplicationUser user, IList<string> userRoles)
         {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var oldRoles = await _userManager.GetRolesAsync(user);
 
-            foreach (var roleName in roleNames)
-            {
-                await _userManager.AddToRoleAsync(user, roleName);
-            }
+            var rolesToAddTo = userRoles.Except(oldRoles).ToList();
+            var rolesToRemoveFrom = oldRoles.Except(userRoles).ToList();
 
-            return IdentityResult.Success;
+            var addUsers = await _userManager.AddToRolesAsync(user, rolesToAddTo);
+            await _userManager.RemoveFromRolesAsync(user, rolesToRemoveFrom);
+
+            return addUsers;
         }
+
+        //---------- Adding TEST DATA Only when needed
+        //private async Task AddTestData()
+        //{
+        //    var viewRole = new ApplicationRole() { Name = "View" };
+        //    var editRole = new ApplicationRole() { Name = "Edit" };
+        //    var deleteRole = new ApplicationRole() { Name = "Delete" };
+
+        //    var franUser = new ApplicationUser() { FirstName = "Fran", Email = "francisco.maurici@hotmail.com", LastName = "Mauri", UserName = "francisco.maurici@hotmail.com" };
+        //    var diegoUser = new ApplicationUser() { FirstName = "Diego", Email = "diego@hotmail.com", LastName = "Santos" };
+
+        //    await _userManager.CreateAsync(franUser);
+        //    await _userManager.CreateAsync(diegoUser);
+
+        //    await _roleManager.CreateAsync(viewRole);
+        //    await _roleManager.CreateAsync(editRole);
+        //    await _roleManager.CreateAsync(deleteRole);
+
+        //    IList<ApplicationUser> users = await _userManager.Users.ToListAsync();
+
+        //    var franUser1 = users.Where(x => x.Email == "francisco.maurici@hotmail.com").FirstOrDefault();
+        //    var oneUser = users.Where(x => x.UserName == "1").FirstOrDefault();
+        //    var diegoUser1 = users.Where(x => x.Email == "diego@gmail.com").FirstOrDefault();
+
+        //    await _userManager.AddToRoleAsync(franUser1, "View");
+        //    await _userManager.AddToRoleAsync(diegoUser1, "View");
+        //    var resutl = await _userManager.AddToRoleAsync(oneUser, "View");
+        //    var resutl2 = await _userManager.AddToRoleAsync(oneUser, "Edit");
+        //    var resutl3 = await _userManager.AddToRoleAsync(oneUser, "Delete");
+        //}
     }
 }

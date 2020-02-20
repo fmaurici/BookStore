@@ -31,8 +31,9 @@ namespace CRUD3.Controllers
         {
             var user = await _accountManager.GetUserWithRolesById(id);
             var userViewModel = _mapper.Map<UserViewModel>(user);
-            userViewModel.Roles = user.Roles.Select(x => _mapper.Map<RoleViewModel>(x)).ToList();
-
+            var allRoles = await _accountManager.GetAllRoles();
+            userViewModel.Roles = allRoles.Select(x => _mapper.Map<RoleViewModel>(x)).ToList(); 
+            userViewModel.SelectedRoles = user.Roles.Select(x => x.Name).ToArray();
 
             return View(userViewModel);
         }
@@ -54,13 +55,6 @@ namespace CRUD3.Controllers
 
             return RedirectToAction("Index");
         }
-
-        //public async Task<IActionResult> AddUserToRole(AdministrationViewModel model)
-        //{
-        //    await _accountManager.AddUserToRole(model.SelectedUser.ToString(), model.SelectedRole.ToString());
-
-        //    return RedirectToAction("Index");
-        //}
 
         public async Task<IActionResult> UpdateUser(UserViewModel model)
         {
