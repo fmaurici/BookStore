@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Business;
 using CRUD3.Models;
+using CRUD3.MVCFilters;
 using Entities;
+using IBusiness;
 using IRepositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Repositories;
-using static Business.Enums;
+using static Entities.Enums;
 
 namespace CRUD3.Views.Home
 {
@@ -22,12 +19,14 @@ namespace CRUD3.Views.Home
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository;
+        private readonly IBookManager _bookManager;
         private readonly IMapper _mapper;
         
         //Constructor
-        public BookController(IBookRepository bookRepository, IMapper mapper)
+        public BookController(IBookRepository bookRepository, IBookManager bookManager, IMapper mapper)
         {
             _bookRepository = bookRepository;
+            _bookManager = bookManager;
             _mapper = mapper;
         }
 
@@ -65,7 +64,7 @@ namespace CRUD3.Views.Home
             var book = _mapper.Map<Book>(model);
 
             //Si mi entidad no existe (osea, su Guid es igual a un New Guid), entonces voy a CreateBook. Si mi entidad existe, entonces voy a EditBook
-            if (model.Id == new Guid()) //TODO: cambiar por GUID.Empty
+            if (model.Id == Guid.Empty) 
             {
                 await CreateBook(book);
             }
@@ -87,11 +86,12 @@ namespace CRUD3.Views.Home
             await _bookRepository.Update(book);
         }
 
+        [TypeFilter(typeof(ShowExceptionMessageFilter))]
         public async Task<IActionResult> Rent(Guid id)
         {
             try
             {
-                var result = await _bookRepository.Rent(id);
+                var result = await _bookManager.Rent(id);
                 return Json(result);
             }
             catch (Exception ex)

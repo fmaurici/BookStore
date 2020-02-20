@@ -1,7 +1,9 @@
 using AutoMapper;
 using Business.Account;
+using Business.Book;
 using Database;
 using Entities;
+using IBusiness;
 using IBusiness.Account;
 using IRepositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -49,13 +51,13 @@ namespace API
             });
 
             //Adding DatabaseContext. MigratinoAssembly changes the migration startup project (necessary for migrations)
-            services.AddDbContext<BookStoreContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DevConnection"),
                 b => b.MigrationsAssembly("API")));
 
             //Add EntityFramework Authentication
             services.AddIdentity<ApplicationUser, ApplicationRole>(options => ConfigurePasswordSettings(options))
-              .AddEntityFrameworkStores<BookStoreContext>()
+              .AddEntityFrameworkStores<ApplicationDbContext>()
               .AddDefaultTokenProviders();
 
             //Add JWT authentication to handle authentication agains db and entityFramework
@@ -120,7 +122,9 @@ namespace API
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IBookOperationRepository, BookOperationRepository>();
 
+            services.AddScoped<IBookManager, BookManager>();
             services.AddScoped<IAccountManager, AccountManager>();
         }
 
@@ -144,7 +148,7 @@ namespace API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, BookStoreContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext context)
         {
             app.UseCors("CorsPolicy");
 
@@ -176,27 +180,27 @@ namespace API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookStore V1");
             });
 
-            if (!context.Books.Any())
-            {
-                var rowlingAuthor = new Author() { Name = "J. K. Rowling" };
-                var tolkienAuthor = new Author() { Name = "J. R. R. Tolkien" };
-                var marquezAuthor = new Author() { Name = "Garcia Marquez" };
-                var witcherAuthor = new Author() { Name = "Andrzej Sapkowski" };
-                var principitoAuthor = new Author() { Name = "Antoine de Saint-Exupery" };
+            //if (!context.Books.Any())
+            //{
+            //    var rowlingAuthor = new Author() { Name = "J. K. Rowling" };
+            //    var tolkienAuthor = new Author() { Name = "J. R. R. Tolkien" };
+            //    var marquezAuthor = new Author() { Name = "Garcia Marquez" };
+            //    var witcherAuthor = new Author() { Name = "Andrzej Sapkowski" };
+            //    var principitoAuthor = new Author() { Name = "Antoine de Saint-Exupery" };
 
-                var franClient = new Client() { Name = "Fran" };
-                var diegoClient = new Client() { Name = "Diego" };
+            //    var franClient = new Client() { Name = "Fran" };
+            //    var diegoClient = new Client() { Name = "Diego" };
 
-                context.Books.AddRange(new List<Book>(){
-                    new Book() { Name = "Harry Potter y la Camara Secreta", Price = 10, Stock = 200, Author = rowlingAuthor },
-                    new Book() { Name = "Harry Potter y la Piedra Filosofal", Price = 20, Stock = 220, Author = rowlingAuthor },
-                    new Book() { Name = "El Señor de los Anillos: La Comunidad del Anillo", Price = 30, Stock = 30, Author = tolkienAuthor },
-                    new Book() { Name = "El Principito", Price = 40, Stock = 150, Author = principitoAuthor },
-                    new Book() { Name = "The Witcher", Price = 50, Stock = 50, Author = witcherAuthor },
-                });
+            //    context.Books.AddRange(new List<Book>(){
+            //        new Book() { Name = "Harry Potter y la Camara Secreta", Price = 10, Stock = 200, Author = rowlingAuthor },
+            //        new Book() { Name = "Harry Potter y la Piedra Filosofal", Price = 20, Stock = 220, Author = rowlingAuthor },
+            //        new Book() { Name = "El Señor de los Anillos: La Comunidad del Anillo", Price = 30, Stock = 30, Author = tolkienAuthor },
+            //        new Book() { Name = "El Principito", Price = 40, Stock = 150, Author = principitoAuthor },
+            //        new Book() { Name = "The Witcher", Price = 50, Stock = 50, Author = witcherAuthor },
+            //    });
 
-                context.SaveChanges();
-            }
+            //    context.SaveChanges();
+            //}
         }
     }
 }

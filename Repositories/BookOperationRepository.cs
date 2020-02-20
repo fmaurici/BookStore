@@ -7,14 +7,13 @@ using System.Text;
 
 namespace Repositories
 {
-    public class AuthorRepository : BaseRepository<Author>, IAuthorRepository
+    public class BookOperationRepository : BaseRepository<BookOperation>, IBookOperationRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public AuthorRepository(ApplicationDbContext context) : base(context)
+        public BookOperationRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
-
     }
 }

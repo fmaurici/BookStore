@@ -12,10 +12,9 @@ namespace Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity //BaseRepository hereda de IBaseRepository de T, donde T es una BaseEntity (es decir cualquier clase que herede de BaseEntity)
     {
-        private readonly BookStoreContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public BaseRepository(BookStoreContext context)
-        // el context este se encuentra en el startup para conectar con entity framework core 
+        public BaseRepository(ApplicationDbContext context)
         {
             _context = context;
         }

@@ -7,7 +7,7 @@ using CRUD3.Models;
 using Entities;
 using IRepositories;
 using Microsoft.AspNetCore.Mvc;
-using static Business.Enums;
+using static Entities.Enums;
 
 namespace CRUD3.Controllers
 {

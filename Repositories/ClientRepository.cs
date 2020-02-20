@@ -9,9 +9,9 @@ namespace Repositories
 {
     public class ClientRepository : BaseRepository<Client>, IClientRepository
     {
-        private readonly BookStoreContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ClientRepository(BookStoreContext context) : base(context)
+        public ClientRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }

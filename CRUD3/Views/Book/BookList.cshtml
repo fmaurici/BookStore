@@ -7,7 +7,7 @@
 <h4>Book List</h4>
 <hr />
 <br>
-
+<div id="ValidationErrors" class="text-danger"></div>
 <table class="table table-dark table-hover table-background-black">
     <thead class="thead-dark thead-aqua">
         <tr>
@@ -79,8 +79,9 @@
             success: function (result) {
                 updateStock(result, bookId);
             },
-            error: function (ex) {
-                alert(ex);
+            error: function (xhr) {
+                //alert(thrownError);
+                $('#ValidationErrors').html(xhr.responseJSON.error);
             }
         })
     }

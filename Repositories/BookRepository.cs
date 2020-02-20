@@ -12,11 +12,11 @@ namespace Repositories
 {
     public class BookRepository : BaseRepository<Book>, IBookRepository
     {
-        private readonly BookStoreContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly IAuthorRepository _authorRepository;
 
         //Inyectamos el contexto (es decir, la base de datos para que entity Framework la pueda usar acá)
-        public BookRepository(BookStoreContext context, IAuthorRepository authorRepository) : base(context)
+        public BookRepository(ApplicationDbContext context, IAuthorRepository authorRepository) : base(context)
         {
             _context = context;
             _authorRepository = authorRepository;
@@ -40,6 +40,7 @@ namespace Repositories
                 .Include(b => b.Author)
                 .Include(b => b.BookClients)
                 .ThenInclude(bc => bc.Client)
+                .ThenInclude(c => c.User)
                 .ToListAsync();
         }
 
@@ -60,9 +61,10 @@ namespace Repositories
         {
             var book = await GetById(id);
 
-            if(book == null) { throw new Exception("Book Id " + id + " not found"); }
+            if (book == null) { throw new Exception("Book Id " + id + " not found"); }
 
-            book.Rent();
+            book.ReduceStockInOne();
+
             await Update(book, id);
             return book.Stock;
         }
@@ -71,7 +73,7 @@ namespace Repositories
             var book = await GetById(id);
             if (book == null) { throw new Exception("Book Id " + id + " not found"); }
             // Aca usa la funcioinalidad de BOOK dentro de Entitybook.
-            book.Return();
+            book.IncreaseStockInOne();
             await Update(book,id);
             return book.Stock;
         }

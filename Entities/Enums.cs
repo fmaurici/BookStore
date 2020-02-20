@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Business
+namespace Entities
 {
     public static class Enums
     {
@@ -11,6 +11,12 @@ namespace Business
             Add,
             Edit,
             Delete
+        }
+
+        public enum BookOperations
+        {
+            Rent,
+            Return
         }
     }
 }

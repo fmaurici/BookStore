@@ -13,12 +13,12 @@ namespace Entities
         public Editorial Editorial { get; set; }
         public virtual IList<BookClient> BookClients { get; set; }
 
-        public int Rent()
+        public int ReduceStockInOne()
         {
             return this.Stock -= 1;
         }
 
-        public int Return()
+        public int IncreaseStockInOne()
         {
             return this.Stock += 1;
         }

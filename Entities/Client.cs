@@ -6,7 +6,7 @@ namespace Entities
 {
     public class Client : BaseEntity
     {
-        public string Name { get; set; }
+        public ApplicationUser User { get; set; }
         public virtual IList<BookClient> BookClients { get; set; }
     }
 }

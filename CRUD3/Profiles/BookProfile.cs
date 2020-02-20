@@ -20,7 +20,7 @@ namespace CRUD3.Profiles
                 .ForMember(
                  vm => vm.Clients, opt => opt.MapFrom(
                      src => src.BookClients.Select(bc =>
-                         new SelectListItem() { Value = bc.Client.Id.ToString(), Text = bc.Client.Name }
+                         new SelectListItem() { Value = bc.Client.Id.ToString(), Text = bc.Client.User.UserName }
                          )
                      )
                 )

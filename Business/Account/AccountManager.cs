@@ -35,8 +35,6 @@ namespace Business.Account
             _roleManager = roleManager;
             _mapper = mapper;
             _configuration = configuration;
-
-            
         }
 
         public async Task<SignInResult> LogIn(UserInfo userInfo)
@@ -129,8 +127,8 @@ namespace Business.Account
             {
                 var userInfo = _mapper.Map<UserInfo>(user);
                 var roles = await GetRolesByUser(user);
-                var rolesInfo = roles.Select(x => _mapper.Map<RoleInfo>(x)).ToList();
-                userInfo.Roles = rolesInfo;
+                userInfo.Roles = roles.Select(x => _mapper.Map<RoleInfo>(x)).ToList();
+                
                 usersInfo.Add(userInfo);
             }
 
@@ -161,6 +159,7 @@ namespace Business.Account
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             var roles = await GetRolesByUser(user);
+
             var userInfo = _mapper.Map<UserInfo>(user);
             userInfo.Roles = roles;
             return userInfo;
@@ -188,12 +187,20 @@ namespace Business.Account
         public async Task<IdentityResult> UpdateUser(UserInfo userInfo)
         {
             var userToUpdate = await _userManager.FindByIdAsync(userInfo.Id.ToString());
+            
+            UpdateUserProperties(userInfo, userToUpdate);
+
+            //I Update User and Roles at the same timpe asynchronously and then wait for all tasks to finish before return
+            await _userManager.UpdateAsync(userToUpdate);
+            await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
+            
+            return await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
+        }
+
+        private static void UpdateUserProperties(UserInfo userInfo, ApplicationUser userToUpdate)
+        {
             userToUpdate.FirstName = userInfo.FirstName;
             userToUpdate.LastName = userInfo.LastName;
-
-            await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
-
-            return await _userManager.UpdateAsync(userToUpdate);
         }
 
         public async Task<IdentityResult> UpdateUserRoles(ApplicationUser user, IList<string> userRoles)
@@ -203,10 +210,9 @@ namespace Business.Account
             var rolesToAddTo = userRoles.Except(oldRoles).ToList();
             var rolesToRemoveFrom = oldRoles.Except(userRoles).ToList();
 
-            var addUsers = await _userManager.AddToRolesAsync(user, rolesToAddTo);
-            await _userManager.RemoveFromRolesAsync(user, rolesToRemoveFrom);
-
-            return addUsers;
+            await _userManager.AddToRolesAsync(user, rolesToAddTo);
+            
+            return await _userManager.RemoveFromRolesAsync(user, rolesToRemoveFrom); 
         }
 
         //---------- Adding TEST DATA Only when needed

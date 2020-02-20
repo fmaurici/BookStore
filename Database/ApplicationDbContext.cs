@@ -7,18 +7,18 @@ using System.Text;
 
 namespace Database
 {
-    public class BookStoreContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
-        public BookStoreContext(DbContextOptions<BookStoreContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
 
-        //Le decimos a Entity Framework que para nuestra relacion muchos a muchos vamos a usar estas 3 tablas
         public DbSet<Book> Books { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BookClient> BookClients { get; set; }
         public DbSet<Editorial> Editorial { get; set; }
+        public DbSet<BookOperation> BookOperations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

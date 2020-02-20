@@ -1,7 +1,9 @@
 using AutoMapper;
 using Business.Account;
+using Business.Book;
 using Database;
 using Entities;
+using IBusiness;
 using IBusiness.Account;
 using IRepositories;
 using Microsoft.AspNetCore.Builder;
@@ -27,13 +29,13 @@ namespace CRUD3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BookStoreContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DevConnection"),
                b => b.MigrationsAssembly("CRUD3")));
 
             //Add EntityFramework Authentication
             services.AddIdentity<ApplicationUser, ApplicationRole>(options => ConfigurePasswordSettings(options))
-              .AddEntityFrameworkStores<BookStoreContext>()
+              .AddEntityFrameworkStores<ApplicationDbContext>()
               .AddDefaultTokenProviders();
 
             services.AddAutoMapper(typeof(Startup));
@@ -50,7 +52,9 @@ namespace CRUD3
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IBookOperationRepository, BookOperationRepository>();
 
+            services.AddScoped<IBookManager, BookManager>();
             services.AddScoped<IAccountManager, AccountManager>();
         }
 
