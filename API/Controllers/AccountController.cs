@@ -26,9 +26,9 @@ namespace API.Controllers
             _accountManager = accountManager;
         }
 
-        [Route("Create")]
+        [Route("Register")]
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserInfo model)
+        public async Task<IActionResult> Register([FromBody] UserInfo model)
         {
             if (ModelState.IsValid)
             {
@@ -50,8 +50,8 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        [Route("Login")]
-        public async Task<IActionResult> Login([FromBody] UserInfo userInfo)
+        [Route("SignIn")]
+        public async Task<IActionResult> SignIn([FromBody] UserInfo userInfo)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +70,14 @@ namespace API.Controllers
             {
                 return BadRequest(ModelState);
             }
+        }
+
+        [HttpPost]
+        [Route("LogOut")]
+        public async Task<IActionResult> LogOut()
+        {
+            await _accountManager.LogOut();
+            return Ok();
         }
 
         private IActionResult BuildToken(UserInfo userInfo)

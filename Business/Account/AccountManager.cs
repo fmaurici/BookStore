@@ -189,10 +189,14 @@ namespace Business.Account
             UpdateUserProperties(userInfo, userToUpdate);
 
             //I Update User and Roles at the same timpe asynchronously and then wait for all tasks to finish before return
-            await _userManager.UpdateAsync(userToUpdate);
-            await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
+            var result = await _userManager.UpdateAsync(userToUpdate);
+
+            if (userInfo.Roles != null)
+            {
+                await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
+            }
             
-            return await UpdateUserRoles(userToUpdate, userInfo.Roles.Select(x => x.Name).ToList());
+            return result;
         }
 
         private static void UpdateUserProperties(UserInfo userInfo, ApplicationUser userToUpdate)

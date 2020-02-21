@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities;
+using IBusiness;
 using IRepositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -17,17 +18,20 @@ namespace API.Controllers
     public class BookController : ControllerBase
     {
         private readonly IBookRepository _bookRepository;
+        private readonly IBookManager _bookManager;
 
         //Constructor
-        public BookController(IBookRepository bookRepository)
+        public BookController(IBookRepository bookRepository, IBookManager bookManager)
         {
             _bookRepository = bookRepository;
+            _bookManager = bookManager;
         }
+
         // GET: api/Book
         [HttpGet]
-        public IEnumerable<Book> Get()
+        public async Task<IActionResult> Get()
         {
-            return _bookRepository.GetAll().Result;
+            return Ok(await _bookRepository.GetAll());
         }
 
         // GET: api/Book/5
@@ -76,7 +80,21 @@ namespace API.Controllers
         {
             try
             {
-                var newStock = await _bookRepository.Rent(id);
+                var newStock = await _bookManager.Rent(id);
+                return Ok(new { id = id, stock = newStock });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("Return/{id}")]
+        public async Task<IActionResult> Return(Guid id)
+        {
+            try
+            {
+                var newStock = await _bookManager.Return(id);
                 return Ok(new { id = id, stock = newStock });
             }
             catch (Exception ex)
