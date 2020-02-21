@@ -100,11 +100,12 @@ namespace CRUD3.Views.Home
             }
         }
 
+        [TypeFilter(typeof(ShowExceptionMessageFilter))]
         public async Task<IActionResult> Return(Guid id)
         {
             try
             {
-                var result = await _bookRepository.Return(id);
+                var result = await _bookManager.Return(id);
                 return Json(result);
             }
             catch (Exception ex)

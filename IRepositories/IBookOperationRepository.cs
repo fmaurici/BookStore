@@ -7,5 +7,6 @@ namespace IRepositories
 {
     public interface IBookOperationRepository : IBaseRepository<BookOperation>
     {
+        
     }
 }

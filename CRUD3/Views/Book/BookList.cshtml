@@ -45,6 +45,7 @@
                     @Html.DisplayFor(modelItem => item.Author.Name)
                 </td>
                 <td>
+                    <a asp-controller="BookOperation" asp-action="Index" asp-route-id="@item.Id"><i class="btn btn-outline-dark">History</i></a>
                     <a asp-controller="Book" asp-action="Edit" asp-route-id="@item.Id"><i class="btn btn-outline-info">Edit</i></a>
                     <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('Are you sure to delete this record?')"><i class="btn btn-outline-danger">Delete</i></a>
                     <a class="RentButton" value="@item.Id" action="Rent"><i class="btn btn-outline-warning">Rent</i></a>
@@ -80,7 +81,7 @@
                 updateStock(result, bookId);
             },
             error: function (xhr) {
-                //alert(thrownError);
+                //TODO: crear una funcion global que muestre errores
                 $('#ValidationErrors').html(xhr.responseJSON.error);
             }
         })

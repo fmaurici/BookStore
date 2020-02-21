@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +54,11 @@ namespace Repositories
             var obj = await GetById(id);
             _context.Remove(obj);
             await _context.SaveChangesAsync();
+        }
+
+        public async virtual Task<IList<T>> FindBy(Expression<Func<T, bool>> predicate)
+        {
+            return await _context.Set<T>().Where(predicate).ToListAsync();
         }
 
     }

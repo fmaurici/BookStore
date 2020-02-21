@@ -40,7 +40,7 @@ namespace Business.Account
         public async Task<SignInResult> LogIn(UserInfo userInfo)
         {
             //isPersistent helps to store the cookie after the session ends (should only when you press remember Me in login)
-            return await _signInManager.PasswordSignInAsync(userInfo.UserName, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
+            return await _signInManager.PasswordSignInAsync(userInfo.UserName ?? userInfo.Email, userInfo.Password, isPersistent: userInfo.RememberMe, lockoutOnFailure: false);
         }
 
         public async Task<SignInResult> LogOut()
@@ -103,8 +103,6 @@ namespace Business.Account
             IList<ApplicationUser> users = await _userManager.Users.ToListAsync();
 
             var usersInfo = users.Select(x => _mapper.Map<UserInfo>(x)).ToList();
-
-            
 
             return usersInfo;
         }

@@ -28,6 +28,7 @@ namespace Repositories
                 .Include(b => b.Author)
                 .Include(b => b.BookClients)
                 .ThenInclude(bc => bc.Client)
+                .ThenInclude(c => c.User)
                 .FirstOrDefaultAsync();
                
         }

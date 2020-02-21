@@ -7,19 +7,18 @@ namespace Entities
 {
     public class BookOperation : BaseEntity
     {
-        public BookOperation()
-        {
+        public BookOperation(){}
 
-        }
-
-        public BookOperation(ApplicationUser user, BookOperations operationType)
+        public BookOperation(ApplicationUser user, Book book, BookOperations operationType)
         {
             User = user;
+            Book = book;
             Type = operationType;
             Date = DateTime.Now;
         }
 
         public ApplicationUser User { get; set; }
+        public Book Book { get; set; }
         public BookOperations Type { get; set; }
         public DateTime Date { get; set; }
     }

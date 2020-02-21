@@ -8,5 +8,6 @@ namespace IBusiness
     public interface IBookManager
     {
         Task<int> Rent(Guid id);
+        Task<int> Return(Guid id);
     }
 }
