@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="bootstrap" Version="4.4.1" />
+    <PackageReference Include="bootstrap" Version="5.2.3" />
     <PackageReference Include="ICSharpCode.NRefactory" Version="5.5.1" />
   </ItemGroup>
 
